@@ -10,6 +10,6 @@ This Repo is the new website for the soon to be Adam Matthiesen Support Center a
 
 ## 👀 Want to learn more?
 
-Feel free to check out [Astro Docs](https://docs.astro.build) or jump into our [Discord Chat](https://web3templates.com/discord).
+Feel free to check out [Astro Docs](https://docs.astro.build).
 
 [![Built with Astro](https://astro.badg.es/v1/built-with-astro.svg)](https://astro.build)
