@@ -1,48 +1,12 @@
-# Astroship - Astro SAAS Starter Website Template
+# Matthiesen XYZ Support Center and IT Services
 
-Astroship is a free starter astro website template for saas, startups, marketing websites, landing pages & blogs. Built with Astro & TailwindCSS.
-
-This Free Template is sponsored by [Web3Templates](https://web3templates.com)
-
-We recommend using [pnpm](https://pnpm.io/) to save disk space on your computer.
-
-### Other Commands
-
-```bash
-pnpm astro ...
-pnpm astro add
-pnpm astro --help
-```
-
-## Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   └── ...
-├── src/
-│   ├── components/
-│   │   └── ...
-│   ├── layouts/
-│   │   └── ...
-│   └── pages/
-│       └── ...
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## TailwindCSS
-
-TailwindCSS is already configured in this repo, so you can start using it without any installation.
+This Repo is the new website for the soon to be Adam Matthiesen Support Center and IT Services.  This website is based on the Astroshop template which uses Astro and TailwindCSS.  I will be modifying the template to suit my own needs and to replace the old MatthiesenXYZ repo as that website was meant to be a Portfolio.
 
 ## Credits
 
-[Hero Illustration](https://www.figma.com/community/file/1108400791662599811) by [Streamline](https://www.streamlinehq.com/)
+### Astroship - Astro SAAS Starter Website Template
+
+[Astroship](https://astro.build/themes/details/astroship/) is a free starter astro website template for saas, startups, marketing websites, landing pages & blogs. Built with Astro & TailwindCSS.
 
 ## 👀 Want to learn more?
 
