@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "strictNullChecks": true,
+    "allowJs": true,
     "types": ["astro/client"],
     "paths": {
       "@lib/*": ["lib/*"],
