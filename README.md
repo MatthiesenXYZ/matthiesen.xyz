@@ -4,11 +4,23 @@ This Repo is the new website for the soon to be Adam Matthiesen Support Center a
 
 ## Credits
 
+### Bootstrap Icons - Fancy icon magic
+
+Im using this for a handful of my icons.
+
+### MDX 
+
+Allows me to utilize the advanced features of MDX files within my Astro project
+
+### TailwindCSS - (Plugin: DaisyUI)
+
+Im using Both TailwindCSS and DaisyUI to deal with both the element styling as well as coloring of the site.
+
 ### Astroship - Astro SAAS Starter Website Template
 
 [Astroship](https://astro.build/themes/details/astroship/) is a free starter astro website template for saas, startups, marketing websites, landing pages & blogs. Built with Astro & TailwindCSS.
 
-## 👀 Want to learn more?
+### Astro.build - The Main website builder this project is built on
 
 Feel free to check out [Astro Docs](https://docs.astro.build).
 

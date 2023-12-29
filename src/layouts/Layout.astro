@@ -11,11 +11,6 @@ export interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
-const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
-  Astro.site
-).toString();
-
 const { title } = Astro.props;
 
 const makeTitle = title
@@ -28,7 +23,7 @@ const makeTitle = title
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
@@ -36,22 +31,6 @@ const makeTitle = title
       title={makeTitle}
       description="IT Support and Services provided remotely from and local to the Seattle, Washington area"
       canonical={canonicalURL}
-      twitter={{
-        creator: "",
-        site: "",
-        card: "summary_large_image",
-      }}
-      openGraph={{
-        basic: {
-          url: canonicalURL,
-          type: "website",
-          title: `Matthiesen IT & Support - Adam Matthiesen Support Center and IT Services`,
-          image: resolvedImageWithDomain,
-        },
-        image: {
-          alt: "",
-        },
-      }}
     />
   </head>
   <body>
