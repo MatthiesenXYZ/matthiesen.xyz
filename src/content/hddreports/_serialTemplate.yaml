@@ -7,4 +7,4 @@ type: SDD/HDD
 isSSD: true/false
 manuDate: Jan 1 2015 ### "jan 1 55" MEANS NOT AVAILABLE
 reportDate: Dec 20 2023
-pdf: true/false
+pdf: /hddreports/SERIAL.pdf
