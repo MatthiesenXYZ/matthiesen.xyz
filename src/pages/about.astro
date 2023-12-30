@@ -2,9 +2,9 @@
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
-import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
-import GithubLastCommit from "@components/GithubLastCommit.astro";
+import Container from "@components/ui/container.astro";
+import Sectionhead from "@components/ui/sectionhead.astro";
+import GithubLastCommit from "@components/crumbs/GithubLastCommit.astro";
 
 const publishedTeamMembers = await getCollection("team", ({ data }) => { return !data.draft && data.publishDate < new Date(); });
 ---

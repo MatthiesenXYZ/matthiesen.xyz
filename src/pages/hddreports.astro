@@ -1,10 +1,10 @@
 ---
-import Hddreportimg from "@components/Hddreportimg.astro";
-import Container from "@components/container.astro";
-import Sectionhead from "@components/sectionhead.astro";
+import Hddreportimg from "@components/hddreports/Hddreportimg.astro";
+import Container from "@components/ui/container.astro";
+import Sectionhead from "@components/ui/sectionhead.astro";
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import HddSearchWidget from "@components/hddSearchWidget.astro";
+import HddSearchWidget from "@components/hddreports/hddSearchWidget.astro";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.extend(localizedFormat);
@@ -60,7 +60,5 @@ const PDFFALSE = "bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5
         </div>
         </>
       ))}
-
-
     </Container>
 </Layout>
