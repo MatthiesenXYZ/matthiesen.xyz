@@ -44,13 +44,24 @@ const hddReportCollection = defineCollection({
     reportDate: z.coerce.date(),
     manuDate: z.coerce.date(),
     pdf: z.string(),
-  })
-})
+  }),
+});
 
+const reviewsCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    name: z.string(),
+    postDate: z.string(),
+    avatar: z.string(),
+    title: z.string(),
+    body: z.string(),
+    body2: z.string().optional(),
+  }),
+});
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
   'blog': blogCollection,
   'team': teamCollection,
-  'hddreports': hddReportCollection,
+  'reviews': reviewsCollection,
 };
