@@ -3,7 +3,7 @@ interface Props {
   href: string;
   size?: "md" | "lg";
   block?: boolean;
-  style?: "outline" | "primary" | "inverted" | "muted";
+  style?: "outline" | "primary" | "inverted" | "muted" | "fancy";
   class?: string;
   [x: string]: any;
 }
@@ -27,6 +27,7 @@ const styles = {
   primary: "bg-black text-white hover:bg-gray-800  border-2 border-transparent",
   inverted: "bg-white text-black   border-2 border-transparent",
   muted: "bg-gray-100 hover:bg-gray-200   border-2 border-transparent",
+  fancy: "text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-badge text-sm px-2.5 py-2.5 text-center me-2 mb-2",
 };
 ---
 
@@ -35,7 +36,7 @@ const styles = {
   {...rest}
   class:list={[
     "rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
-    block && "w-full",
+    block,
     sizes[size],
     styles[style],
     className,

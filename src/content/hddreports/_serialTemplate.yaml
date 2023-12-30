@@ -1,0 +1,10 @@
+serial: SERIAL
+make: MAKE
+model: MODEL
+capacity: 0Gb
+size: 2.5"/3.5"
+type: SDD/HDD
+isSSD: true/false
+manuDate: Jan 1 2015 ### "jan 1 55" MEANS NOT AVAILABLE
+reportDate: Dec 20 2023
+pdf: true/false

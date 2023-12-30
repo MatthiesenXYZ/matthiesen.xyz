@@ -1,0 +1,66 @@
+---
+import Hddreportimg from "@components/Hddreportimg.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import HddSearchWidget from "@components/hddSearchWidget.astro";
+import dayjs from "dayjs";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+dayjs.extend(localizedFormat);
+
+// Get HDD Report Collection
+const hddreports = await getCollection("hddreports");
+
+// Sort content entries by publication date
+hddreports.sort(function (a, b) { return b.data.reportDate.valueOf() - a.data.reportDate.valueOf(); });
+
+//Consts
+const PDFTRUE = "bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300";
+const PDFFALSE = "bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300";
+---
+
+<Layout title="">
+    <Container>
+      <Sectionhead>
+        <Fragment slot="title">HDD Wipe Reports</Fragment>
+        <Fragment slot="desc">Drives Wiped using nwipe v35</Fragment>
+    </Sectionhead>
+    <br>
+    <HddSearchWidget />
+    <div class="">
+      { hddreports.map((post) => (
+        <>
+        <div class="divider" />
+        <div class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"> 
+          <table>
+            <tr><td> 
+              <div class="hero-content pd-2 py-2 mt-8  text-xl font-bold inline flex-col md:flex-row text-white fill-white">
+                {post.data.isSSD === true ? <Hddreportimg imagePath="/src/assets/device-ssd.svg" width={100} height={100} /> : <Hddreportimg imagePath="/src/assets/device-hdd.svg" width={100} height={100} />} </div>
+            </td><td>
+              <div class="hero-content flex-col md:flex-row">
+                <div class="grow w-full">
+                  <h1 class="text-xl font-bold">
+                    {post.data.make} {post.data.model} ~ S/N: {post.data.serial}<br />
+                  </h1>
+                  <h2 class="text-l font-bold">
+                    <div class="py-1 text-1xl">
+                      {post.data.capacity} - {post.data.size} {post.data.type}
+                    </div>
+                  </h2>
+                  <p class="py-1 text-1xl">Manufacture Date: <b>{dayjs(post.data.manuDate).format("ll") === "Jan 1, 1955" ? "Not Available" : dayjs(post.data.manuDate).format("ll")}</b></p>
+                  <p class="py-1 text-1xl">Report Date: {dayjs(post.data.reportDate).format("ll")}</p>
+                  <div class="card-actions justify-start">
+                  {post.data.pdf === "none" ? <div class={PDFFALSE}>No Report Available</div> : <a target="_blank" href={post.data.pdf}><div class={PDFTRUE}>View PDF Report</div></a>}
+                  </div>
+                </div>
+              </div>
+            </td></tr>
+          </table>
+        </div>
+        </>
+      ))}
+
+
+    </Container>
+</Layout>

@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import GithubLastCommit from "@components/GithubLastCommit.astro";
 
 const publishedTeamMembers = await getCollection("team", ({ data }) => { return !data.draft && data.publishDate < new Date(); });
 ---
@@ -42,5 +43,16 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => { return 
           </div>
         ))}
     </div>
+    <div class="flex justify-center mt-10 mb-2">
+      <h2 class="font-bold text-xl text-white">About This website</h2>
+    </div>
+    <center>
+      <GithubLastCommit />
+      <div class="my-2" />
+      <!-- ASTRO SUPPORT BUTTON -->
+      <div 
+        class="font-bold inline-flex justify-center p-0.5 mb-2 overflow-hidden text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"><a href="https://astro.build/" class="relative px-2 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">This website was built using Astro.Build<img src="/astro-icon.svg" width="16" height="16" class="inline ml-2"></a>
+      </div>
+  </center>
   </Container>
 </Layout>
