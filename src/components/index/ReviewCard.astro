@@ -8,7 +8,7 @@ const lastReviews = reviewsCollection.slice(0,3);
 ---
 
 {lastReviews.map((item)  => (
-    <article class="max-w-[75%] mt-5 ml-10">
+    <article class="lg:max-w-[75%] md:max-w-[75%] max-w-full mt-5 ml-10">
         <div class="flex items-center mb-4">
             <img class="w-10 h-10 me-4 rounded-full" src={item.data.avatar} alt={item.data.name}>
             <div class="font-medium dark:text-white">
