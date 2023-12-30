@@ -19,19 +19,17 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Astro.
+      <h2 class="font-bold text-3xl text-white">
+        Creating a NEW type of IT Support.
       </h2>
-      <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
+      <p class="text-lg leading-relaxed text-slate-300">
+        We are a small team of one at the moment,  But with the goal to change the way business look at their hardware and software they use to run their day to day business.  The Open Source Alternative!  Save money by getting rid of the Licensing fees!
       </p>
     </div>
     <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
       {
         publishedTeamMembers.map((teamMemberEntry) => (
-          <div class="group">
+          <div class="group bg-slate-600 rounded-badge hover:-translate-y-1 hover:shadow-xl">
             <div class="w-full aspect-square">
               <Picture
                 src={teamMemberEntry.data.avatar.src}
@@ -39,15 +37,16 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
                 sizes="(max-width: 800px) 100vw, 400px"
                 width={400}
                 height={400}
-                class="w-full rounded-md transition group-hover:-translate-y-1 group-hover:shadow-xl bg-white object-cover object-center aspect-square"
+                class="w-full rounded-md transition bg-white object-cover object-center aspect-square"
               />
             </div>
 
-            <div class="mt-4 text-center">
-              <h2 class="text-lg text-gray-800">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-500">
+            <div class="mt-4 text-center group-hover:-translate-y-1 ">
+              <h2 class="text-lg text-gray-200">{teamMemberEntry.data.name}</h2>
+              <h3 class="text-sm text-slate-300">
                 {teamMemberEntry.data.title}
               </h3>
+              
             </div>
           </div>
         ))
