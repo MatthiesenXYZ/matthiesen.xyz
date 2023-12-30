@@ -1,24 +1,20 @@
 ---
 import Button from "./ui/button.astro";
 ---
-
-<!-- To make this contact form work, create your free access key from https://web3forms.com/
-     Then you will get all form submissions in your email inbox. -->
 <form
   action="https://api.web3forms.com/submit"
   method="POST"
   id="form"
   class="needs-validation"
   novalidate>
-  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-  <!-- Create your free access key from https://web3forms.com/ -->
+  <input type="hidden" name="access_key" value="7cb460b0-427f-439a-95cd-4fe99d078601" />
   <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
   <div class="mb-5">
     <input
       type="text"
       placeholder="Full Name"
       required
-      class="w-full px-4 py-3 border-2 placeholder:text-gray-900 rounded-md outline-none focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"
+      class="w-full px-4 py-3 border-2 placeholder:text-gray-900 text-gray-800 rounded-md outline-none focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"
       name="name"
     />
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
@@ -32,7 +28,7 @@ import Button from "./ui/button.astro";
       placeholder="Email Address"
       name="email"
       required
-      class="w-full px-4 py-3 border-2 placeholder:text-gray-900 rounded-md outline-none focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"
+      class="w-full px-4 py-3 border-2 placeholder:text-gray-900 text-gray-800 rounded-md outline-none focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"
     />
     <div class="empty-feedback text-red-400 text-sm mt-1">
       Please provide your email address.
@@ -46,7 +42,7 @@ import Button from "./ui/button.astro";
       name="message"
       required
       placeholder="Your Message"
-      class="w-full px-4 py-3 border-2 placeholder:text-gray-900 rounded-md outline-none h-36 focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"
+      class="w-full px-4 py-3 border-2 placeholder:text-gray-900 text-gray-800 rounded-md outline-none h-36 focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"
     ></textarea>
     <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
       Please enter your message.

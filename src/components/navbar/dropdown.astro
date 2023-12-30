@@ -30,13 +30,17 @@ const { title, lastItem, children } = Astro.props;
             : "lg:left-0 origin-top-left",
         ]}>
         <div
-          class="px-3 lg:py-2 lg:bg-white lg:rounded-md lg:shadow lg:border flex flex-col">
+          class="px-3 lg:py-2 lg:bg-slate-800 lg:rounded-md lg:shadow lg:border flex flex-col">
           {
             children.map((item) => (
               <a
                 href={item.path}
-                class="py-1 text-gray-400 hover:text-gray-600">
+                class="py-1 text-gray-100 hover:text-gray-400">
                 {item.title}
+                {item.badge && (
+                  <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
+                  {item.badgetxt}</span>
+                )}
               </a>
             ))
           }

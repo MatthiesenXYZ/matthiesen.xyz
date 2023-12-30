@@ -1,0 +1,69 @@
+---
+// @ts-ignore
+
+const services = [
+  {
+    title: "Equipment Install",
+    description:
+      "Local Install and setup of New/Old Equipment/Servers, Incuding; Routers, Wifi, Cameras, Servers, Desktops, Laptops, TVs, etc.",
+    icon: "bi bi-pc-display",
+  },
+  {
+    title: "Software Install & Deployment",
+    description:
+      "Whether you are trying to Deploy a new network of computers or just trying to add some new systems, We can Install Windows, macOS, & Linux. Both Desktop and Server variations.",
+    icon: "bi bi-windows",
+  },
+  {
+    title: "Virtualization",
+    description:
+      "While our native Virtualization Environment is ProxmoxVE, we also have experience with XCP-NG, VmWare ESXi, Microsoft Hyper-V & unRaid.",
+    icon: "bi bi-hdd-network",
+  },
+  {
+    title: "Web Design & Management",
+    description:
+      "Just like the way we host our website, we can create websites for our Clients that our both low cost to host(Using Cloudflare Pages & Astro.build and a git Repo) and are easy to maintain by either us for a low cost or by the client. (No long term cost, Only Initial cost of website)",
+    icon: "bi bi-globe-americas",
+  },
+  {
+    title: "Managed IT Services",
+    description:
+      "Remote monitoring and management of hardware and infrastructure(software). Security services, including monitoring, penetration testing, threat hunting, or incident response.",
+    icon: "bi bi-server",
+  },
+  {
+    title: "Support Center",
+    description:
+      "Low cost priority access to our Support Center.",
+    icon: "bi bi-envelope-at",
+  },
+];
+---
+
+<div class="mt-16 md:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    Everything you need for your next IT Project
+  </h2>
+  <p class="text-lg mt-4 text-slate-300">
+    We can help you with anything you need, both Open and Closed Source, 
+    <i><i class="bi bi-chevron-compact-left" />We Prefer Open Source.<i class="bi bi-chevron-compact-right" /></i>
+    We aim to make any project go as smoothly as possible!
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  {
+    services.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full pl-2 p-1.5 w-8 h-8 shrink-0">
+          <i class={item.icon}></i>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <p class="text-slate-300 mt-2 leading-relaxed">{item.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>

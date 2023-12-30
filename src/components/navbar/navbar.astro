@@ -16,6 +16,8 @@ const menuitems = [
   {
     title: "Blog",
     path: "/blog",
+    badge: true,
+    badgetxt: "New Posts",
   },
   {
     title: "Contact",
@@ -25,8 +27,12 @@ const menuitems = [
     title: "Customer Logins",
     path: "#",
     children: [
-      {title: "Support Center", path: "https://support.matthiesen.xyz"},
-      {title: "Billing & Invoicing", path: "https://mxyz.invoicing.co/client/login"}
+      {title: "Support Center", 
+      path: "https://support.matthiesen.xyz",
+      badge: true,
+      badgetxt: "New"},
+      {title: "Billing & Invoicing", 
+      path: "https://mxyz.invoicing.co/client/login"}
     ]
   },
 //  {
@@ -81,7 +87,7 @@ const menuitems = [
                       <span> {item.title}</span>
                       {item.badge && (
                         <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
-                          New
+                          {item.badgetxt}
                         </span>
                       )}
                     </a>

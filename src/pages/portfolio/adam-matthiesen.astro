@@ -1,0 +1,49 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+
+---
+<Layout title="">
+    <Container>
+        <!-- HEADER -->
+        <Sectionhead>
+            <Fragment slot="title">Adam Matthiesen</Fragment>
+            <Fragment slot="desc">Portfolio</Fragment>
+        </Sectionhead>
+        <!-- BODY -->
+        <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+            <h2 class="font-bold text-3xl text-white">
+            About
+            </h2>
+            <p class="text-lg leading-relaxed text-slate-300">
+                Ever since I was a small kid I have migrated towards technology over sports, card games, and other normal 2000 era kid stuff. After years of showing intrest in technology I built my first computer with my Dad at the age of Five. After that I continued into learning more about the computer at my hands, it started simnple as gaming, then running Minecraft servers, and eventually... on to more complicated projects, that led me to my first IT job working as a Help Desk Technician at, Your Business Solutions, INC. in Texas Remote from my home in Washington at the age of 19.
+            </p>
+            <p class="text-lg leading-relaxed text-slate-300">
+                Today I am a Self Employed IT Support & Network Administration Specialist, which is fancy words for a well rounded IT Guy who can help with almost anything you could need. My Focus recently has been open source business integration, and cost savings. I have been Striving to create a good way to link common open source and reliable software into common everyday business practices to replace software such as Office 365, Exchange, ESXi, VDI, and more. Even created a single sign on environment linking Active Directory Authentication into Opensource software using LDAP or O-Auth Solutions through Authentik or Cloudflare Access(Free Tier). For More information as to what I've been working on, or to connect with me checkout my Blog, Connect with me on LinkedIn, or checkout my Support Center!
+            </p>
+        </div>
+        <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+            <h2 class="font-bold text-3xl text-white">
+            Certifications
+            </h2>
+            <div class="px-4 pb-5 pt-1 justify-left  ">
+                <div class="flex flex-row">
+                    <img class="mx-1" src="/portfolio/adam/TestOutPCPRO.png" height="64px" width="64px" alt="TestOut PC Pro Certified">
+                    <a href="https://portal.3cx.com/share/certificate/w9XQneM8HY" target="_blank" class="mx-1" aria-label="3CX Basic Certified" title="3CX Basic Certified">
+                        <img  src="/portfolio/adam/3cxBasic.png" height="64px" width="64px" alt="3CX Basic Certified">
+                    </a>
+                    <!-- PUT NEW ITEMS HERE -->
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-8">
+          <a
+            href="/about"
+            class="bg-gray-800 px-5 py-3 rounded-md hover:bg-gray-600 transition"
+            >← Back to About</a
+          >
+        </div>
+    </Container>
+  </Layout>
+  
