@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.extend(localizedFormat);
 ---
-<Layout title="">
+<Layout title="HDD Reports: Search">
   <Container>
     <Sectionhead>
       <Fragment slot="title">HDD Wipe Reports: Search</Fragment>
@@ -34,10 +34,10 @@ dayjs.extend(localizedFormat);
 </Layout>
 <script>
   // imports
-import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat";
-dayjs.extend(localizedFormat);
-import DOMPurify from "dompurify";
+  import dayjs from "dayjs";
+  import localizedFormat from "dayjs/plugin/localizedFormat";
+  dayjs.extend(localizedFormat);
+  import DOMPurify from "dompurify";
   import Fuse from "fuse.js";
   // Constant Values
   let SEARCH_DATA;
