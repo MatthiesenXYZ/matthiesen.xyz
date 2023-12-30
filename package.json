@@ -22,13 +22,14 @@
     "astro-navbar": "^2.3.0",
     "astro-seo": "^0.8.0",
     "bootstrap-icons": "^1.11.2",
-    "dompurify": "^3.0.6",
-    "fuse.js": "^7.0.0",
     "sharp": "^0.33.1",
     "tailwindcss": "^3.3.5"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.5",
     "daisyui": "^4.4.24",
-    "dayjs": "^1.11.10"
+    "dayjs": "^1.11.10",
+    "dompurify": "^3.0.6",
+    "fuse.js": "^7.0.0"
   }
 }
