@@ -1,52 +1,24 @@
 ---
 import Button from "../ui/button.astro";
 ---
-<form
-  action="https://api.web3forms.com/submit"
-  method="POST"
-  id="form"
-  class="needs-validation"
-  novalidate>
+<form action="https://api.web3forms.com/submit" method="POST" id="form" class="needs-validation" novalidate>
   <input type="hidden" name="access_key" value="7cb460b0-427f-439a-95cd-4fe99d078601" />
-  <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+  <input type="hidden" name="subject" value="New Ticket Submission" />
+  <input type="hidden" name="from_name" value="MXYZ-Web3Form" />
+  <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
   <div class="mb-5">
-    <input
-      type="text"
-      placeholder="Full Name"
-      required
-      class="w-full px-4 py-3 border-2 placeholder:text-gray-900 text-gray-800 rounded-md outline-none focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"
-      name="name"
-    />
-    <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-      Please provide your full name.
-    </div>
+    <input type="text" placeholder="Full Name" required class="w-full px-4 py-3 border-2 placeholder:text-gray-900 text-gray-800 rounded-md outline-none focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300" name="name" />
+    <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">Please provide your full name.</div>
   </div>
   <div class="mb-5">
-    <label for="email_address" class="sr-only">Email Address</label><input
-      id="email_address"
-      type="email"
-      placeholder="Email Address"
-      name="email"
-      required
-      class="w-full px-4 py-3 border-2 placeholder:text-gray-900 text-gray-800 rounded-md outline-none focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"
-    />
-    <div class="empty-feedback text-red-400 text-sm mt-1">
-      Please provide your email address.
-    </div>
-    <div class="invalid-feedback text-red-400 text-sm mt-1">
-      Please provide a valid email address.
-    </div>
+    <label for="email_address" class="sr-only">Email Address</label>
+    <input id="email_address" type="email" placeholder="Email Address" name="email" required class="w-full px-4 py-3 border-2 placeholder:text-gray-900 text-gray-800 rounded-md outline-none focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300" />
+    <div class="empty-feedback text-red-400 text-sm mt-1">Please provide your email address.</div>
+    <div class="invalid-feedback text-red-400 text-sm mt-1">Please provide a valid email address.</div>
   </div>
   <div class="mb-3">
-    <textarea
-      name="message"
-      required
-      placeholder="Your Message"
-      class="w-full px-4 py-3 border-2 placeholder:text-gray-900 text-gray-800 rounded-md outline-none h-36 focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"
-    ></textarea>
-    <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-      Please enter your message.
-    </div>
+    <textarea name="message" required placeholder="Your Message" class="w-full px-4 py-3 border-2 placeholder:text-gray-900 text-gray-800 rounded-md outline-none h-36 focus:ring-4 border-gray-600 focus:border-gray-200 ring-gray-800 bg-slate-300"></textarea>
+    <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">Please enter your message.</div>
   </div>
   <Button type="submit" size="lg" block>Send Message</Button>
   <div id="result" class="mt-3 text-center"></div>

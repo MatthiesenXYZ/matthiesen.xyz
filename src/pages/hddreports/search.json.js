@@ -13,8 +13,14 @@ export async function getPosts() {
         isSSD: hddreports.data.isSSD,
         pdf: hddreports.data.pdf,
         manuDate: hddreports.data.manuDate,
-        })
-    );
+        }));
 }
 
-export async function GET({}){return new Response(JSON.stringify(await getPosts()),{status: 200, headers: {"Content-Type": "application/json"}})}
+export async function GET( { } ){
+    return new Response(
+        JSON.stringify(await getPosts()),{
+            status: 200, 
+            headers: {"Content-Type": "application/json"}
+        }
+    )
+}

@@ -14,13 +14,24 @@
     </div>
 </form>
 <script>
-    import DOMPurify from "dompurify";
-    const form = document.querySelector("form");
-    form?.addEventListener("submit", (e) => { e.preventDefault();
-        const formData = new FormData(form);
-        const searchTerm = DOMPurify.sanitize(formData.get("search")?.toString());
-        if (!searchTerm || searchTerm.length === 0) return;
-        const url = new URL("/hddreports/search", window.location.origin);
-        url.searchParams.set("q", searchTerm);
-        window.location.assign(url.toString()); })
+// IMPORTS
+import DOMPurify from "dompurify";
+
+// CONSTANT - FORM SELECTOR
+const form = document.querySelector("form");
+
+// FORM SUBMISSION PROCESSOR AND REDIRECT
+form?.addEventListener("submit", (e) => { e.preventDefault();
+    // REQUEST FORM DATA FROM SELECTOR
+    const formData = new FormData(form);
+    // TAKE FORM DATA AND CLEAN IT FOR JSON SEARCH
+    const searchTerm = DOMPurify.sanitize(formData.get("search")?.toString());
+    // IF SEARCH IS EMPTY GIVE UP
+    if (!searchTerm || searchTerm.length === 0) return;
+    // SET SEARCH URL
+    const url = new URL("/hddreports/search", window.location.origin);
+    // SET QUERY AND SEARCH
+    url.searchParams.set("q", searchTerm);
+    // SET URL BOX SETTING
+    window.location.assign(url.toString()); })
 </script>

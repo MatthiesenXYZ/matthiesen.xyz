@@ -6,55 +6,32 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
   {
-    title: "Home",
-    path: "/",
-    target: "",
+    title: "Home", path: "/", target: "",
   },
   {
-    title: "About",
-    path: "/about",
-    target: "",
+    title: "About", path: "/about", target: "",
+  },
+  { title: "Blog", path: "/blog",  target: "", badge: true, badgetxt: "New Posts",
   },
   {
-    title: "Blog",
-    path: "/blog",
-    target: "",
-    badge: true,
-    badgetxt: "New Posts",
+    title: "Contact", path: "/contact", target: "",
   },
   {
-    title: "Contact",
-    path: "/contact",
-    target: "",
-  },
-  {
-    title: "Public Reports",
-    path: "#",
-    target: "",
+    title: "Public Reports", path: "#", target: "",
     children: [
       {
-        title: "HDD Wipe Reports",
-        path: "/hddreports",
-        target: "",
+        title: "HDD Wipe Reports", path: "/hddreports", target: "",
       },
     ],
   },
   {
-    title: "Customer Logins",
-    path: "#",
-    target: "",
+    title: "Customer Logins", path: "#", target: "",
     children: [
       {
-        title: "Support Center", 
-        path: "https://support.matthiesen.xyz",
-        target: "_blank",
-        badge: true,
-        badgetxt: "New",
+        title: "Support Center", path: "https://support.matthiesen.xyz", target: "_blank",
       },
       {
-        title: "Billing & Invoicing", 
-        path: "https://mxyz.invoicing.co/client/login",
-        target: "_blank",
+        title: "Billing & Invoicing", path: "https://mxyz.invoicing.co/client/login", target: "_blank",
       },
     ],
   },
@@ -95,9 +72,7 @@ const menuitems = [
                       class="flex lg:px-3 py-2 items-center text-gray-100 hover:text-gray-400">
                       <span> {item.title}</span>
                       {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
-                          {item.badgetxt}
-                        </span>
+                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">{item.badgetxt}</span>
                       )}
                     </a>
                   </li>
@@ -106,10 +81,6 @@ const menuitems = [
             ))
           }
         </ul>
-        <div class="lg:hidden flex items-center mt-3 gap-4">
-          <Link href="https://www.buymeacoffee.com/adammatthiesen" style="fancy" block size="md">
-          <svg xmlns="http://www.w3.org/2000/svg" class="inline" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;transform: ;msFilter:;"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V7H3v11c0 1.654 1.346 3 3 3h8c1.654 0 3-1.346 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-4 9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9h10v9zm2-2v-5h2l.002 5H17z"></path></svg>Support our Work</Link>
-        </div>
         <!--div>
           <div class="lg:hidden flex items-center gap-4">
             <a href="#">Log in</a>
@@ -118,10 +89,6 @@ const menuitems = [
         </div-->
       </MenuItems>
     </Astronav>
-    <div class="hidden lg:flex items-center mt-3 gap-4">
-      <Link href="https://www.buymeacoffee.com/adammatthiesen" style="fancy" block size="md">
-      <svg xmlns="http://www.w3.org/2000/svg" class="inline" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;transform: ;msFilter:;"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 2h2v3H5zm4 0h2v3H9zm4 0h2v3h-2zm6 7h-2V7H3v11c0 1.654 1.346 3 3 3h8c1.654 0 3-1.346 3-3h2c1.103 0 2-.897 2-2v-5c0-1.103-.897-2-2-2zm-4 9a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9h10v9zm2-2v-5h2l.002 5H17z"></path></svg>Support our Work</Link>
-    </div>
     <!--div>
       <div class="hidden lg:flex items-center gap-4">
         <a href="#">Log in</a>

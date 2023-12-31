@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+
+// Get Testimonials Collection
+const testimonials = await getCollection("testimonials");
+
+---
+
+<h2 class="mt-10 text-4xl lg:text-5xl font-bold lg:tracking-tight">Testimonials</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 mt-10 ml-5 gap-5">
+    {testimonials.slice(0,6).map((item)  => (
+        <article class="p-6 border rounded-lg shadow-xl shadow-slate-950 bg-slate-900 border-slate-400">
+            <div class="flex items-center mb-4">
+                <img class="w-10 h-10 me-4 rounded-full" src={item.data.avatar} alt={item.data.name}>
+                <div class="font-medium text-slate-100">
+                    <p>
+                    {item.data.name} 
+                    <span class="block text-sm text-slate-300">Posted: {item.data.postDate}</span>
+                    {item.data.postSource && (<span class="block text-sm text-slate-300">Source: <a href={item.data.postSource.link}>{item.data.postSource.desc}</a></span>)}
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+                <h3 class="text-sm font-semibold text-slate-200">
+                    {item.data.title}
+                </h3>
+            </div>
+            <p class="mb-2 text-slate-400">{item.data.body}</p>
+        </article>
+    ))}
+</div>
+

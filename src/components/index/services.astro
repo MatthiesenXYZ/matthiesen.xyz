@@ -52,10 +52,11 @@ const services = [
   </p>
 </div>
 
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-10 gap-6">
   {
     services.map((item) => (
-      <div class="flex gap-4 items-start">
+    <article class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-900 border-slate-400">
+      <div class="flex gap-0 items-start">
         <div class="mt-1 bg-black rounded-full pl-2 p-1.5 w-8 h-8 shrink-0">
           <i class={item.icon}></i>
         </div>
@@ -64,6 +65,7 @@ const services = [
           <p class="text-slate-300 mt-2 leading-relaxed">{item.description}</p>
         </div>
       </div>
+      </article>
     ))
   }
 </div>

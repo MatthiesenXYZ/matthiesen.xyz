@@ -3,13 +3,15 @@ import Container from "@components/ui/container.astro";
 import Services from "@components/index/services.astro";
 import Hero from "@components/index/hero.astro";
 import Layout from "@layouts/Layout.astro";
-import Testimonials from "@components/index/Testimonials.astro";
+import TestimonialsEmpty from "@components/index/TestimonialsEmpty.astro";
+import TestimonialCard from "@components/index/TestimonialCard.astro";
 ---
 
 <Layout title="Home">
   <Container>
     <Hero />
     <Services />
-    <Testimonials />
+    <TestimonialsEmpty />
+    <!--TestimonialCard /-->
   </Container>
 </Layout>

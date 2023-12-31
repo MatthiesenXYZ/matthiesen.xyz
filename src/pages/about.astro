@@ -1,58 +1,22 @@
 ---
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
-import GithubLastCommit from "@components/crumbs/GithubLastCommit.astro";
+import AboutDescription from "@components/about/AboutDescription.astro";
+import AboutThisWebsite from "@components/about/AboutThisWebsite.astro";
+import ListTeamMembers from "@components/about/ListTeamMembers.astro";
 
-const publishedTeamMembers = await getCollection("team", ({ data }) => { return !data.draft && data.publishDate < new Date(); });
 ---
 <Layout title="About">
   <Container>
+
     <Sectionhead><Fragment slot="title">About</Fragment>
       <Fragment slot="desc">We are a small passionate team.</Fragment>
     </Sectionhead>
-    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-white">
-        Creating a NEW type of IT Support.
-      </h2>
-      <p class="text-lg leading-relaxed text-slate-300">
-        We are a small team of one at the moment,  But with the goal to change the way businesses look at their hardware and software they use to run their day to day business.  The Open Source Alternative!  Save money by getting rid of the Licensing fees!
-      </p>
-    </div>
-    <div class="grid md:grid-cols-3 items-center gap-10 mx-auto max-w-4xl mt-12">
-      {publishedTeamMembers.map((teamMemberEntry) => (
-          <div class="group bg-slate-800 rounded-badge hover:-translate-y-1 shadow-xl shadow-slate-950">
-            <div class="w-full aspect-square">
-              <Picture
-                src={teamMemberEntry.data.avatar}
-                alt={teamMemberEntry.data.name}
-                sizes="(max-width: 800px) 100vw, 400px"
-                width={400} height={400}
-                class="w-full rounded-md transition bg-white object-cover object-center aspect-square"/>
-            </div>
-            <div class="my-5 text-center">
-              <h2 class="text-lg text-gray-200">{teamMemberEntry.data.name}</h2>
-              <h3 class="text-sm text-slate-300">{teamMemberEntry.data.title}</h3>
-              <div class="mt-3">
-                {teamMemberEntry.data.profileurl && <a href={teamMemberEntry.data.profileurl} class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
-                <i class="bi bi-person" /> Portfolio</a>}
-              </div>
-            </div>
-          </div>
-        ))}
-    </div>
-    <div class="flex justify-center mt-10 mb-2">
-      <h2 class="font-bold text-xl text-white">About This website</h2>
-    </div>
-    <center>
-      <GithubLastCommit />
-      <div class="my-2" />
-      <!-- ASTRO SUPPORT BUTTON -->
-      <div 
-        class="font-bold inline-flex justify-center p-0.5 mb-2 overflow-hidden text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800"><a href="https://astro.build/" class="relative px-2 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">This website was built using Astro.Build<img src="/astro-icon.svg" width="16" height="16" class="inline ml-2"></a>
-      </div>
-  </center>
+
+    <AboutDescription />
+    <ListTeamMembers />
+    <AboutThisWebsite />
+    
   </Container>
 </Layout>
