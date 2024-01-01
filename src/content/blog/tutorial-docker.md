@@ -8,7 +8,7 @@ image: {
 }
 publishDate: "2023-12-31 12:00"
 category: "Tutorial"
-author: "Adam Matthiesen"
+author: adam-matthiesen
 tags: [Open Source, Docker, Docker Compose, Portainer, Tutorial]
 ---
 

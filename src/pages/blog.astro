@@ -5,49 +5,32 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
 import RssIcon from "@components/crumbs/RssIcon.astro";
+import BlogPost from "@components/blog/BlogPost.astro";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blog", ({ data }) => { return !data.draft && data.publishDate < new Date(); });
 
 // Sort content entries by publication date
 publishedBlogEntries.sort(function (a, b) { return b.data.publishDate.valueOf() - a.data.publishDate.valueOf(); });
+
 ---
 <Layout title="Blog">
   <Container>
+    
     <Sectionhead>
-      <Fragment slot="title">Our Blog <RssIcon /></Fragment>
-      <Fragment slot="desc">Our Posts as well as Tutorials we host for FOSS type software.</Fragment>
+      <Fragment slot="title">
+        Our Blog <RssIcon />
+      </Fragment>
+      <Fragment slot="desc">
+        Our Posts as well as Tutorials we host for FOSS type software.
+      </Fragment>
     </Sectionhead>
+
     <main class="mt-16">
       <ul class="grid gap-16 max-w-4xl mx-auto">
-        {publishedBlogEntries.map((blogPostEntry, index) => (
-            <li><div class="divider" />
-              <a href={`/blog/${blogPostEntry.slug}`}>
-                <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                  <Picture
-                    src={blogPostEntry.data.image.src}
-                    alt={blogPostEntry.data.image.alt}
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    width={800} height={600}
-                    loading={index <= 2 ? "eager" : "lazy"}
-                    decoding={index <= 2 ? "sync" : "async"}
-                    class="w-full rounded-md object-cover object-center bg-white"/>
-                  <div>
-                    <span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 uppercase tracking-wider">{blogPostEntry.data.category}</span>
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">{blogPostEntry.data.title}</h2>
-                    <div class="flex gap-2 mt-3">
-                      <span class="text-slate-300">{blogPostEntry.data.author}</span>
-                      <span class="text-slate-300">• </span>
-                      <time class="text-slate-300" datetime={blogPostEntry.data.publishDate.toISOString()}>{blogPostEntry.data.publishDate.toDateString()}</time>
-                    </div>
-                    <p class="text-slate-400">{blogPostEntry.data.snippet}</p>
-                  </div>
-                </div>
-              </a>
-            </li>
-          ))
-        }
+        {publishedBlogEntries.map((p) => <BlogPost post={p} />)}
       </ul>
     </main>
+
   </Container>
 </Layout>

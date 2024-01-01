@@ -1,4 +1,4 @@
-import { z } from "astro:content";
+import { reference, z } from "astro:content";
 
 export const blogSchema = z.object({
   draft: z.boolean(),
@@ -9,7 +9,7 @@ export const blogSchema = z.object({
     alt: z.string(),
   }),
   publishDate: z.string().transform(str => new Date(str)),
-  author: z.string().default('Adam Matthiesen'),
+  author: reference('team'),
   category: z.string(),
   tags: z.array(z.string()),
 })
