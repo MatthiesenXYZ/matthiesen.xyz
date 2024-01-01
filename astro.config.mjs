@@ -7,4 +7,5 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://matthiesen.xyz",
   integrations: [tailwind(), mdx(), sitemap()],
+  redirects: { '/rss': '/rss.xml' },
 });
