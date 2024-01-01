@@ -1,44 +1,8 @@
 ---
 // @ts-ignore
+import { getCollection } from "astro:content";
+const serviceList = await getCollection("services");
 
-const services = [
-  {
-    title: "Equipment Install",
-    description:
-      "Local Install and setup of New/Old Equipment/Servers, Incuding; Routers, Wifi, Cameras, Servers, Desktops, Laptops, TVs, etc.",
-    icon: "bi bi-pc-display",
-  },
-  {
-    title: "Software Install & Deployment",
-    description:
-      "Whether you are trying to Deploy a new network of computers or just trying to add some new systems, We can Install Windows, macOS, & Linux. Both Desktop and Server variations.",
-    icon: "bi bi-windows",
-  },
-  {
-    title: "Virtualization",
-    description:
-      "While our native Virtualization Environment is ProxmoxVE, we also have experience with XCP-NG, VmWare ESXi, Microsoft Hyper-V & unRaid.",
-    icon: "bi bi-hdd-network",
-  },
-  {
-    title: "Web Design & Management",
-    description:
-      "Just like the way we host our website, we can create websites for our Clients that our both low cost to host(Using Cloudflare Pages & Astro.build and a git Repo) and are easy to maintain by either us for a low cost or by the client. (No long term cost, Only Initial cost of website)",
-    icon: "bi bi-globe-americas",
-  },
-  {
-    title: "Managed IT Services",
-    description:
-      "Remote monitoring and management of hardware and infrastructure(software). Security services, including monitoring, penetration testing, threat hunting, or incident response.",
-    icon: "bi bi-server",
-  },
-  {
-    title: "Support Center",
-    description:
-      "Low cost priority access to our Support Center.",
-    icon: "bi bi-envelope-at",
-  },
-];
 ---
 
 <div class="mt-16 md:mt-0">
@@ -54,15 +18,15 @@ const services = [
 
 <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-10 gap-6">
   {
-    services.map((item) => (
+    serviceList.map((item) => (
     <article class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-900 border-slate-400">
       <div class="flex gap-0 items-start">
         <div class="mt-1 bg-black rounded-full pl-2 p-1.5 w-8 h-8 shrink-0">
-          <i class={item.icon}></i>
+          <i class={item.data.icon}></i>
         </div>
         <div>
-          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
-          <p class="text-slate-300 mt-2 leading-relaxed">{item.description}</p>
+          <h3 class="font-semibold text-lg">{item.data.title}</h3>{" "}
+          <p class="text-slate-300 mt-2 leading-relaxed">{item.data.description}</p>
         </div>
       </div>
       </article>

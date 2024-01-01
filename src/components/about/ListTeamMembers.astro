@@ -2,11 +2,11 @@
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
 
-const publishedTeamMembers = await getCollection("team");
+const TeamMembers = await getCollection("team");
 ---
 
 <div class="grid md:grid-cols-3 items-center gap-10 mx-auto max-w-4xl mt-12">
-  {publishedTeamMembers.map((teamMemberEntry) => (
+  {TeamMembers.map((teamMemberEntry) => (
       <div class="group bg-slate-800 rounded-badge hover:-translate-y-1 shadow-xl shadow-slate-950">
         <div class="w-full aspect-square">
           <Picture

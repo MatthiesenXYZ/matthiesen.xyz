@@ -60,6 +60,15 @@ const testimonialsCollection = defineCollection({
   }),
 });
 
+const servicesCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    icon: z.string(),
+    description: z.string(),
+  }),
+});
+
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
@@ -67,4 +76,5 @@ export const collections = {
   'team': teamCollection,
   'testimonials': testimonialsCollection,
   'hddreports': hddReportCollection,
+  'services': servicesCollection,
 };
