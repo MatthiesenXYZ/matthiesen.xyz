@@ -25,7 +25,7 @@ const teamCollection = defineCollection({
     name: z.string(),
     title: z.string(),
     profileurl: z.string().optional(),
-    avatar: z.string(),
+    avatar: z.string().default('/default-review.jpg'),
   }),
 });
 
@@ -64,7 +64,7 @@ const servicesCollection = defineCollection({
   type: "data",
   schema: z.object({
     title: z.string(),
-    icon: z.string(),
+    icon: z.string().default('bi bi-balloon'),
     description: z.string(),
   }),
 });
