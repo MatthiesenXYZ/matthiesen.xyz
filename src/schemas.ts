@@ -9,7 +9,7 @@ export const blogSchema = z.object({
     alt: z.string(),
   }),
   publishDate: z.string().transform(str => new Date(str)),
-  author: reference('team'),
+  author: reference('team').default('adam-matthiesen'),
   category: z.string(),
   tags: z.array(z.string()),
 })
