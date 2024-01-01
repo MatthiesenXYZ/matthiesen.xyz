@@ -10,7 +10,7 @@ const { imagePath, width, height} = Astro.props;
 const images = import.meta.glob('/src/assets/*.{jpeg,jpg,png,gif,svg}')
 ---
 <style>
-    .hddreport-filter-white{
+.hddreport-filter-white{
     padding: 0.4rem;
     filter: invert(95%) sepia(100%) saturate(22%) hue-rotate(318deg) brightness(104%) contrast(107%);
 }

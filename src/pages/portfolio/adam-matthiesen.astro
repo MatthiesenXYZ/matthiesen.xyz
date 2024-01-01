@@ -6,26 +6,23 @@ import AdamMOtherProjects from "@components/portfolio/AdamMOtherProjects.astro";
 import AdamMSocials from "@components/portfolio/AdamMSocials.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
 import Layout from "@layouts/Layout.astro";
+import BackToAbout from "@components/about/BackToAbout.astro";
 
 ---
 <Layout title="Adam Matthiesen">
     <Container>
-        <!-- HEADER -->
+        
         <Sectionhead>
             <Fragment slot="title">Adam Matthiesen</Fragment>
             <Fragment slot="desc">Portfolio</Fragment>
         </Sectionhead>
-        <!-- BODY -->
+
         <AdamMSocials />
         <AdamMAbout />
         <AdamMCertifications />
         <AdamMOtherProjects />
-        <!-- BACK BUTTON & FOOTER -->
-        <div class="text-center mt-8">
-            <a href="/about" class="bg-gray-800 px-5 py-3 rounded-md hover:bg-gray-600 transition">
-                ← Back to About
-            </a>
-        </div>
+
+        <BackToAbout />
     </Container>
   </Layout>
   
