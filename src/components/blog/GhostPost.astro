@@ -1,0 +1,44 @@
+---
+import { Picture } from "astro:assets";
+import { getEntry } from "astro:content";
+
+const { post } = Astro.props;
+const { title, excerpt, feature_image, feature_image_alt, published_at } = post;
+const { data: authorData } = await getEntry("team", post.primary_author.slug);
+
+const dateOptions: object = {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+};
+
+const formattedPublishDate = new Date(published_at).toLocaleDateString(
+	"en-US",
+	dateOptions
+);
+
+---
+<li>
+  <div class="divider" />
+  <a href={`/ghost/${post.slug}`}>
+    <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+      <Picture
+        src={feature_image}
+        alt={feature_image_alt? feature_image_alt : "alt"}
+        sizes="(max-width: 800px) 100vw, 800px"
+        width={800} height={600}
+        class="w-full rounded-md object-cover object-center bg-white"/>
+      <div>
+        <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">{title}</h2>
+        <div class="flex gap-2 mt-3">
+          <a href={authorData.profileurl} class="inline-flex pr-2 mb-2  focus:outline-none rounded-full border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-slate-800 text-slate-300 border-gray-600 hover:bg-slate-600">
+              <img class="w-7 h-7 me-1 rounded-full" src={authorData.avatar} alt={authorData.name}>
+              <span class="text-slate-300 mt-1">{authorData.name}</span>
+          </a>
+          <time class="text-slate-300 mt-1" datetime={published_at}>{formattedPublishDate}</time>
+        </div>
+        <p class="text-slate-400">{excerpt}</p>
+      </div>
+    </div>
+  </a>
+</li>

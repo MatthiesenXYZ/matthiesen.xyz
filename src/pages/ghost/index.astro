@@ -1,0 +1,33 @@
+---
+import GhostPost from '@components/blog/GhostPost.astro';
+import { ghostClient } from '../../lib/ghost';
+import Layout from '@layouts/Layout.astro';
+import Container from '@components/ui/container.astro';
+import Sectionhead from '@components/ui/sectionhead.astro';
+
+const posts = await ghostClient.posts
+    .browse({
+        limit: 'all', include: 'authors',
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+    
+---
+<Layout title="Blog">
+    <Container>
+      
+      <Sectionhead>
+        <Fragment slot="title">Our Blog - Ghost</Fragment>
+        <Fragment slot="desc">Our Posts as well as Tutorials we host for FOSS type software.</Fragment>
+      </Sectionhead>
+  
+
+      <main class="mt-16">
+        <ul class="grid gap-16 max-w-5xl mx-auto">
+        { posts.map((post) => <GhostPost post={post} />) }
+    </ul>
+  </main>
+
+    </Container>
+</Layout>
