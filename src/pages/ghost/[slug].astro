@@ -27,8 +27,8 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { title, html, published_at } = post;
 const { data: authorData } = await getEntry("team", post.primary_author.slug);
+const { title, html, published_at } = post;
 
 const dateOptions: object = {
 	year: "numeric",
@@ -40,7 +40,7 @@ const formattedPublishDate = new Date(published_at).toLocaleDateString(
 	"en-US",
 	dateOptions
 );
-
+   
 ---
 <Layout title={title}>
     <Container>
