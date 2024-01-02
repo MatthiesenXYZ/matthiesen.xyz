@@ -5,6 +5,7 @@ import Layout from '@layouts/Layout.astro';
 import Container from '@components/ui/container.astro';
 import Sectionhead from '@components/ui/sectionhead.astro';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
+import RssIcon from '@components/crumbs/RssIcon.astro';
 
 const posts = await ghostClient.posts
     .browse({
@@ -19,7 +20,7 @@ const posts = await ghostClient.posts
     <Container>
       <GhostPowered />
       <Sectionhead>
-        <Fragment slot="title"> Blog </Fragment>
+        <Fragment slot="title"> Blog <RssIcon /></Fragment>
         <Fragment slot="desc">Our Posts as well as Tutorials we host for FOSS type software.</Fragment>
       </Sectionhead>
       <main class="mt-16">
