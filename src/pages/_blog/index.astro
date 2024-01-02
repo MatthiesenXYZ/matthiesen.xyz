@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/ui/container.astro";
+import Sectionhead from "@components/ui/sectionhead.astro";
+import RssIcon from "@components/crumbs/RssIcon.astro";
+import BlogPost from "@components/blog/BlogPost.astro";
+
+// Filter blog entries with 'draft: false' & date before current date
+const blogEntries = await getCollection("blog", ({ data }) => { return !data.draft && data.publishDate < new Date(); });
+
+// Sort content entries by publication date
+blogEntries.sort(function (a, b) { return b.data.publishDate.valueOf() - a.data.publishDate.valueOf(); });
+
+---
+<Layout title="Blog">
+  <Container>
+    
+    <Sectionhead>
+      <Fragment slot="title">Our Blog <RssIcon /></Fragment>
+      <Fragment slot="desc">Our Posts as well as Tutorials we host for FOSS type software.</Fragment>
+    </Sectionhead>
+
+    <main class="mt-16">
+      <ul class="grid gap-16 max-w-5xl mx-auto">
+        {blogEntries.map((p) => <BlogPost post={p} />)}
+      </ul>
+    </main>
+
+  </Container>
+</Layout>

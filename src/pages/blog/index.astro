@@ -1,31 +1,31 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "@layouts/Layout.astro";
-import Container from "@components/ui/container.astro";
-import Sectionhead from "@components/ui/sectionhead.astro";
-import RssIcon from "@components/crumbs/RssIcon.astro";
-import BlogPost from "@components/blog/BlogPost.astro";
+import GhostPost from '@components/blog/GhostPost.astro';
+import { ghostClient } from '../../lib/ghost';
+import Layout from '@layouts/Layout.astro';
+import Container from '@components/ui/container.astro';
+import Sectionhead from '@components/ui/sectionhead.astro';
+import GhostPowered from '@components/crumbs/GhostPowered.astro';
 
-// Filter blog entries with 'draft: false' & date before current date
-const blogEntries = await getCollection("blog", ({ data }) => { return !data.draft && data.publishDate < new Date(); });
-
-// Sort content entries by publication date
-blogEntries.sort(function (a, b) { return b.data.publishDate.valueOf() - a.data.publishDate.valueOf(); });
-
+const posts = await ghostClient.posts
+    .browse({
+        limit: 'all', include: 'authors',
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+    
 ---
 <Layout title="Blog">
-  <Container>
-    
-    <Sectionhead>
-      <Fragment slot="title">Our Blog <RssIcon /></Fragment>
-      <Fragment slot="desc">Our Posts as well as Tutorials we host for FOSS type software.</Fragment>
-    </Sectionhead>
-
-    <main class="mt-16">
-      <ul class="grid gap-16 max-w-5xl mx-auto">
-        {blogEntries.map((p) => <BlogPost post={p} />)}
-      </ul>
-    </main>
-
-  </Container>
+    <Container>
+      <GhostPowered />
+      <Sectionhead>
+        <Fragment slot="title"> Blog </Fragment>
+        <Fragment slot="desc">Our Posts as well as Tutorials we host for FOSS type software.</Fragment>
+      </Sectionhead>
+      <main class="mt-16">
+        <ul class="grid gap-16 max-w-5xl mx-auto">
+        { posts.map((post) => <GhostPost post={post} />) }
+        </ul>
+      </main>
+    </Container>
 </Layout>
