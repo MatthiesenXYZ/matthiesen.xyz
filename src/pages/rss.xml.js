@@ -6,9 +6,7 @@ export async function GET(context) {
 //  const blog = await getCollection("blog", ({ data }) => { return !data.draft && data.publishDate < new Date(); });
 //  blog.sort(function (a, b) { return b.data.publishDate.valueOf() - a.data.publishDate.valueOf(); });
   const posts = await ghostClient.posts
-    .browse({
-        limit: 'all', include: 'authors',
-    })
+    .browse({ limit: 'all' })
     .catch((err) => {
         console.error(err);
     });
