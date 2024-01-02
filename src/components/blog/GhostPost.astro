@@ -23,11 +23,11 @@ const formattedPublishDate = new Date(published_at).toLocaleDateString(
   <a href={`/blog/${post.slug}`}>
     <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
       <Picture
-        src={feature_image}
+        src={feature_image? feature_image : "/mxyz-hero.png"}
         alt={feature_image_alt? feature_image_alt : "alt"}
         sizes="(max-width: 800px) 100vw, 800px"
         width={800} height={600}
-        class="w-full rounded-md object-cover object-center bg-white"/>
+        class="w-full rounded-md object-cover object-center"/>
       <div>
         <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">{title}</h2>
         <div class="flex gap-2 mt-3">
@@ -37,7 +37,7 @@ const formattedPublishDate = new Date(published_at).toLocaleDateString(
           </a>
           <time class="text-slate-300 mt-1" datetime={published_at}>{formattedPublishDate}</time>
         </div>
-        <p class="text-slate-400">{excerpt}</p>
+        {excerpt && (<p class="text-slate-400">{excerpt}</p>)}
       </div>
     </div>
   </a>
