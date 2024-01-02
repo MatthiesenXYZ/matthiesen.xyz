@@ -9,6 +9,11 @@ export interface Props {
   title: string;
 }
 
+// THIS SETTING MUST MATCH THEMES AVAILABLE FROM 'tailwind.config.cjs'
+// module.exports = { / .... / daisyui: { themes: ["synthwave"], }
+// if themes: true, then you can select ANY DaisyUI Theme.
+const DaisyUiThemeSelection = "synthwave"
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const { title } = Astro.props;
@@ -19,7 +24,7 @@ const makeTitle = title
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="synthwave">
+<html lang="en" data-theme={DaisyUiThemeSelection}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
