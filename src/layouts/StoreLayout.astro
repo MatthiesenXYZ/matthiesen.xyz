@@ -17,6 +17,8 @@ const DaisyUiThemeSelection = "synthwave"
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
+const checkDevENV = import.meta.env.DEV
+
 const { title } = Astro.props;
 
 const makeTitle = title
@@ -32,7 +34,7 @@ const makeTitle = title
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <SEO
-      title={makeTitle}
+      title={checkDevENV === true ? "AstroDEV - " + makeTitle : makeTitle}
       description="IT Support and Services provided remotely from and local to the Seattle, Washington area"
       canonical={canonicalURL}
     />

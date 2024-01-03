@@ -50,7 +50,7 @@ export interface SnipcartProductDimensions {
 
 export type SnipcartProductCustomField = {
     readonly name: string;
-    readonly options: readonly string[];
+    readonly options?: string[];
     readonly value?: string;
     readonly type?: string;
     readonly required?: boolean;
