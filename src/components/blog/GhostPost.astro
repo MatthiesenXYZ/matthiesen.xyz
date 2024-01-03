@@ -8,8 +8,7 @@ const { data: authorData } = await getEntry("team", post.primary_author.slug);
 
 const dateOptions: object = { year: "numeric", month: "long", day: "numeric" };
 
-const formattedPublishDate = new Date(published_at).toLocaleDateString(
-	"en-US", dateOptions );
+const formattedPublishDate = new Date(published_at).toLocaleDateString("en-US", dateOptions );
 
 ---
 <li>

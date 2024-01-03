@@ -3,3 +3,4 @@
 interface ImportMetaEnv {
     readonly CONTENT_API_KEY: string;
 }
+declare module '@tryghost/content-api';

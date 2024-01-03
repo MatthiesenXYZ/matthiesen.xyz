@@ -1,13 +1,13 @@
 ---
 import GhostPost from '@components/blog/GhostPost.astro';
-import { ghostClient } from '../../lib/ghost';
+import { getGhostPosts } from '@lib/ghost';
 import Layout from '@layouts/Layout.astro';
 import Container from '@components/ui/container.astro';
 import Sectionhead from '@components/ui/sectionhead.astro';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
 import RssIcon from '@components/crumbs/RssIcon.astro';
 
-const posts = await ghostClient.posts.browse({ limit: 'all', include: 'authors', filter: 'visibility:public' }).catch((err) => { console.error(err); });
+const posts = await getGhostPosts();
     
 ---
 <Layout title="Blog">

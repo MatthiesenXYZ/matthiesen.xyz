@@ -1,6 +1,6 @@
 ---
 import SupportOurWork from '@components/crumbs/SupportOurWork.astro';
-import { ghostClient } from '../../lib/ghost';
+import { getGhostPosts } from '@lib/ghost';
 import Layout from '@layouts/Layout.astro';
 import Container from '@components/ui/container.astro';
 import { getEntry } from 'astro:content';
@@ -9,7 +9,7 @@ import GhostPowered from '@components/crumbs/GhostPowered.astro';
 import { Picture } from 'astro:assets';
 
 export async function getStaticPaths() {
-  const posts = await ghostClient.posts.browse({ limit: 'all', include: 'authors', filter: 'visibility:public' }).catch((err) => { console.error(err); });
+  const posts = await getGhostPosts();
   return posts.map((post) => {
     return {
       params: { slug: post.slug },

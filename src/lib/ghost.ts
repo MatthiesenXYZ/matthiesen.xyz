@@ -5,3 +5,14 @@ export const ghostClient = new GhostContentAPI({
     key: import.meta.env.CONTENT_API_KEY,
     version: 'v5.0',
 });
+
+const getGhostPosts = async () => {
+    const posts = await ghostClient.posts.browse({
+        limit: 'all', include: 'authors', filter: 'visibility:public' 
+    })
+    return posts;
+}
+
+export {
+    getGhostPosts
+}
