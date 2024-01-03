@@ -4,6 +4,7 @@ import StoreLayout from "@layouts/StoreLayout.astro";
 import ShoppingCart from "@components/store/ShoppingCart.astro";
 import StoreProductList from "@components/store/StoreProductList.astro";
 
+const checkDevENV = import.meta.env.DEV
 ---
 
 <StoreLayout title="Store">
@@ -15,12 +16,9 @@ import StoreProductList from "@components/store/StoreProductList.astro";
       <div class="mt-16 md:mt-5 ">
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Products & Services</h2>
       </div>
-      <p class="text-lg mt-4 text-slate-300">
-        There are no products at the moment... Check back later for updates!
-      </p>
     </center>
 
-    <!--StoreProductList /-->
-
+    {checkDevENV === true ? <StoreProductList /> : <center><p class="text-lg mt-4 text-slate-300">There are no products at the moment... Check back later for updates!</p></center> }
+    
   </Container>
 </Layout>

@@ -5,50 +5,43 @@ import Product from "@components/snipcart/Product.astro";
 
 const storeItems = await getCollection("store");
 ---
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-10 gap-6">
-     { storeItems.map((storeItem) => (
-        <article class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-900 border-slate-400">
-          <div class="w-full aspect-square">
-            <Picture
-              src={storeItem.data.image}
-              alt={storeItem.data.name}
-              sizes="(max-width: 100px) 100vw, 64px"
-              width={64} height={64}
-              class="w-full rounded-md transition bg-white object-cover object-center aspect-square"/>
-          </div>
-          <div class="divider my-0" />
-          <div>
-            <h3 class="font-semibold inline text-lg">{storeItem.data.name}</h3>
-            <a href={storeItem.data.url} title={storeItem.data.name}>
-              <span class="inline-flex items-center justify-center w-6 h-6 me-2 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-gray-700 dark:text-blue-400">
-                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
-                </svg>
-              </span>
-            </a>
-            <p class="text-slate-300 mt-2 leading-relaxed">{storeItem.data.description}</p>
-          </div>
-          <div class="flex flex-row mt-5">
-            <div class="flex-none pt-2 justify-start justify-self-start justify-items-start ">
-              <div class="text-slate-200 text-xs font-medium px-3 py-1.5 rounded-full bg-green-900 ">
-                ${storeItem.data.price}
-              </div>
-            </div>
-            <div class="flex-1" />
-            <div class="flex-2 justify-end justify-self-end justify-items-end">
-              <Product
-                id={storeItem.id}
-                name={storeItem.data.name}
-                url={storeItem.data.url}
-                price={storeItem.data.price}
-                description={storeItem.data.description}
-                image={storeItem.data.image}>
-                <button class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-0 ">Add to cart</button>
-              </Product>
-            </div>
-          </div>
-        </article>
-     )) }
-  </div>
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-10 gap-6">
+{ storeItems.map((storeItem) => (
+  <article class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-900 border-slate-600">
+    <div class="w-full">
+      <Picture
+        src={storeItem.data.image}
+        alt={storeItem.data.name}
+        sizes="(max-width: 100px) 100vw, 64px"
+        width={64} height={64}
+        class="w-full rounded-md transition object-cover object-center" />
+    </div>
+    <div class="mt-1">
+      <a href={storeItem.data.url} title={"More Info: " + storeItem.data.name}><h3 class="font-semibold inline text-lg">{storeItem.data.name}</h3><span class="inline-flex items-center ml-2 justify-center w-6 h-6 me-2 text-sm font-semibold text-blue-800 bg-blue-100 rounded-full dark:bg-gray-700 dark:text-blue-400"><svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/></svg></span>
+      </a>
+      <p class="text-slate-300 mt-0 leading-relaxed">{storeItem.data.description}</p>
+    </div>
+    <div class="flex flex-row mt-5">
+      <div class="flex-none pt-2 justify-start justify-self-start justify-items-start ">
+        <div class="text-slate-200 text-xs font-medium px-3 py-1.5 rounded-full bg-green-900 hover:bg-green-700">${storeItem.data.price}
+        </div>
+      </div>
+      <div class="flex-1" />
+      <div class="flex-2 justify-end justify-self-end justify-items-end">
+        <Product
+          id={storeItem.id} 
+          name={storeItem.data.name}
+          url={storeItem.data.url} 
+          price={storeItem.data.price}
+          description={storeItem.data.description} 
+          image={storeItem.data.image}>
+          <button class="text-slate-200 bg-gradient-to-r from-blue-500 via-blue-700 to-blue-900 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-0 ">Add to cart</button>
+        </Product>
+      </div>
+    </div>
+  </article>
+)) }
+</div>
 
   <!--Product __EXTRA_PRODUCT_FEATURES__ -->
   <!--customFields={[
