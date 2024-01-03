@@ -1,18 +1,26 @@
 import GhostContentAPI from '@tryghost/content-api';
+const env = import.meta.env;
 
-export const ghostClient = new GhostContentAPI({
-    url: import.meta.env.CONTENT_API_URL,
-    key: import.meta.env.CONTENT_API_KEY,
-    version: import.meta.env.CONTENT_API_VER,
-});
+const ghostClient = new GhostContentAPI({ 
+    url: env.CONTENT_API_URL, 
+    key: env.CONTENT_API_KEY, 
+    version: env.CONTENT_API_VER
+})
 
-const getGhostPosts = async () => {
+export const getGhostPosts = async () => {
     const posts = await ghostClient.posts.browse({
-        limit: 'all', include: 'authors', filter: 'visibility:public' 
-    })
+        limit: 'all', 
+        include: ['authors', 'tags'], 
+        filter: 'visibility:public',
+    }) 
     return posts;
 }
 
-export {
-    getGhostPosts
+export const getGhostFeaturedPosts = async () => {
+    const posts = await ghostClient.posts.browse({
+        limit: '3', 
+        include: ['authors', 'tags'], 
+        filter: 'featured:true',
+    })
+    return posts;
 }
