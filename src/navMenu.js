@@ -23,8 +23,7 @@ export const navigationMenu = [
       { title: "HDD Wipe Reports", 
         path: "/hddreports", 
         target: "" }, 
-    ], 
-  },
+    ], },
   { title: "Customer Logins", 
     path: "#", 
     target: "",
@@ -35,6 +34,5 @@ export const navigationMenu = [
       { title: "Billing & Invoicing", 
         path: "https://mxyz.invoicing.co/client/login", 
         target: "_blank" },
-    ], 
-  },
+    ], },
 ];
