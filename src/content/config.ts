@@ -9,6 +9,8 @@ const testimonialsCollection = defineCollection({ type: "data", schema: testimon
 
 const servicesCollection = defineCollection({ type: "data", schema: servicesSchema });
 
+const productCollection = defineCollection({})
+
 export const collections = {
   'team': teamCollection,
   'testimonials': testimonialsCollection,
