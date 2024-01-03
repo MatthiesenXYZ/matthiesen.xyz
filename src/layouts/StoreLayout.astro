@@ -4,7 +4,7 @@ import Footer from "@components/crumbs/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { ViewTransitions } from "astro:transitions";
+import SnipcartSetup from "@components/snipcart/SnipcartSetup.astro";
 
 export interface Props {
   title: string;
@@ -36,7 +36,7 @@ const makeTitle = title
       description="IT Support and Services provided remotely from and local to the Seattle, Washington area"
       canonical={canonicalURL}
     />
-    <ViewTransitions />
+    <SnipcartSetup />
   </head>
   <body>
     <Navbar />
