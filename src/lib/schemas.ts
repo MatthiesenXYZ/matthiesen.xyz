@@ -38,6 +38,14 @@ export const servicesSchema = z.object({
   description: z.string(),
 })
 
+export const storeSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  url: z.string(),
+  image: z.string(),
+  price: z.number(),
+  description: z.string(),
+})
 //
 //// UNUSED SCHEMAS
 //

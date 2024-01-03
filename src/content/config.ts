@@ -1,5 +1,5 @@
 import { defineCollection } from 'astro:content';
-import { hddReportSchema, servicesSchema, teamSchema, testimonialsSchema } from '../lib/schemas'
+import { hddReportSchema, servicesSchema, storeSchema, teamSchema, testimonialsSchema } from '../lib/schemas'
 
 const teamCollection = defineCollection({ type: "data", schema: teamSchema });
 
@@ -9,11 +9,12 @@ const testimonialsCollection = defineCollection({ type: "data", schema: testimon
 
 const servicesCollection = defineCollection({ type: "data", schema: servicesSchema });
 
-const productCollection = defineCollection({})
+const storeCollection = defineCollection({ type: "data", schema: storeSchema })
 
 export const collections = {
   'team': teamCollection,
   'testimonials': testimonialsCollection,
   'hddreports': hddReportCollection,
   'services': servicesCollection,
+  'store': storeCollection,
 };
