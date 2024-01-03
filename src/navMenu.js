@@ -11,7 +11,7 @@ export const navigationMenu = [
   { title: "Store", 
     path: "/store",
     badge: true,
-    badgetxt: "Coming Soon",  
+    badgetxt: "NEW",  
     target: "", },
   { title: "Contact", 
     path: "/contact", 

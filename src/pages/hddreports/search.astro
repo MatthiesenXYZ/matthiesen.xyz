@@ -10,10 +10,12 @@ dayjs.extend(localizedFormat);
 
 <Layout title="HDD Wipe Reports: Search">
   <Container>
+
     <Sectionhead>
       <Fragment slot="title">HDD Wipe Reports: Search</Fragment>
       <Fragment slot="desc">Drives Wiped using nwipe v35</Fragment>
-  </Sectionhead>
+    </Sectionhead>
+
   <br>
   <form>
     <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -39,8 +41,10 @@ dayjs.extend(localizedFormat);
   <section aria-label="Search Results">
     <ul id="searchResults"></ul>
   </section>
-</Container>
+
+  </Container>
 </Layout>
+
 <script>
 // IMPORTS
 import dayjs from "dayjs";

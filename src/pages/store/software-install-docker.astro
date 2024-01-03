@@ -1,0 +1,42 @@
+---
+import StoreGoBack from "@components/store/StoreGoBack.astro";
+import Container from "@components/ui/container.astro";
+import Sectionhead from "@components/ui/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { Picture } from "astro:assets";
+---
+
+<Layout title="Store: Software Install/Deployment">
+    <Container>
+
+        <center class="mt-5">
+            <Picture
+                src="/store/docker.png"
+                alt="docker"
+                sizes="(max-width: 512px) 100vw, 128px"
+                width={512} height={256}
+                class="flex rounded-md transition object-cover object-center" 
+            />
+            <div class="mt-5 text-center"]}>
+                <h1 class="text-4xl lg:text-5xl font-bold text-white lg:tracking-tight">Software Install / Deployment
+                </h1>
+                <p class="text-lg mt-4 text-slate-300">
+                Docker / Docker Compose / Portainer-CE (Linux-Only)
+                </p>
+            </div>
+        </center>
+
+        <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-5">
+            <p class="text-lg leading-relaxed text-slate-300">
+                The scope of this project is that the Technician will deploy/install the above software on a provided Linux (Ubuntu) VPS / VM / PC with Root access.
+            </p>
+            <p class="text-lg leading-relaxed text-slate-300">
+                During the process of installing the above software you will be granted with a WebUI (Portainer-CE) to access and manage your docker install. Portainer, Docker, Docker-Compose are Free and Open Source Software, you are NOT buying a software license in this purchase.  You are purchasing a Install Service for 1(One) Server/PC
+            </p>
+        </div>
+        
+        <StoreGoBack />
+        
+    </Container>
+  </Layout>
+  

@@ -12,15 +12,19 @@ const posts = await getGhostPosts();
 ---
 <Layout title="Blog">
     <Container>
+
       <GhostPowered />
+      
       <Sectionhead>
         <Fragment slot="title"> Blog <RssIcon /></Fragment>
         <Fragment slot="desc">Our Posts as well as Tutorials we host for FOSS type software.</Fragment>
       </Sectionhead>
+      
       <main class="mt-16">
         <ul class="grid gap-16 max-w-5xl mx-auto">
         { posts.map((post) => <GhostPost post={post} />) }
         </ul>
       </main>
+      
     </Container>
 </Layout>

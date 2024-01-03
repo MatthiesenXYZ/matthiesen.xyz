@@ -1,0 +1,6 @@
+id: SKU-SI-DOCKER
+name: Software Install - Docker Server (W/ WebUI)
+url: /store/software-install-docker
+price: 30
+image: /store/docker.png
+description: Install Docker, Compose, Portainer-CE, on Linux VM or Server (1 Install / Purchase)

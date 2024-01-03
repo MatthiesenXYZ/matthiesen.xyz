@@ -21,13 +21,17 @@ const PDFFALSE = "bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5
 ---
 
 <Layout title="HDD Wipe Reports">
-    <Container>
-      <Sectionhead>
-        <Fragment slot="title">HDD Wipe Reports</Fragment>
-        <Fragment slot="desc">Drives Wiped using nwipe v35</Fragment>
+  <Container>
+
+    <Sectionhead>
+      <Fragment slot="title">HDD Wipe Reports</Fragment>
+      <Fragment slot="desc">Drives Wiped using nwipe v35</Fragment>
     </Sectionhead>
+
     <br>
+    
     <HddSearchWidget />
+
     <div class="">
       { hddreports.map((post) => (
         <>
@@ -60,5 +64,6 @@ const PDFFALSE = "bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5
         </div>
         </>
       ))}
+    </div>
     </Container>
 </Layout>

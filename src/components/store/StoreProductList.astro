@@ -5,7 +5,7 @@ import Product from "@components/snipcart/Product.astro";
 
 const storeItems = await getCollection("store");
 ---
-<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-10 gap-6">
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-10 mb-20 gap-6">
 { storeItems.map((storeItem) => (
   <article class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-900 border-slate-600">
     <div class="w-full">
