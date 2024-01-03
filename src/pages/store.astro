@@ -1,7 +1,7 @@
 ---
 import Container from "@components/ui/container.astro";
 import Layout from "@layouts/Layout.astro";
-import { CartCheckout, CartItemsCount, CartTotalPrice, Product } from "@lloydjatkinson/astro-snipcart/astro";
+import { CartCheckout, CartItemsCount, CartTotalPrice, Product } from "@components/snipcart/astro";
 ---
 
 <Layout title="">
@@ -16,7 +16,7 @@ import { CartCheckout, CartItemsCount, CartTotalPrice, Product } from "@lloydjat
     Your cart contains <CartItemsCount /> items with a total of <CartTotalPrice />.
   </div>
 
-  <!--Product
+  <Product
     as="span"
     id="SKU-0001"
     name="Standard T-Shirt"
@@ -27,7 +27,7 @@ import { CartCheckout, CartItemsCount, CartTotalPrice, Product } from "@lloydjat
     <button>
         Add
     </button>
-  </Product-->
+  </Product>
 
   </Container>
 </Layout>
