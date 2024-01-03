@@ -1,0 +1,33 @@
+---
+import Container from "@components/ui/container.astro";
+import Layout from "@layouts/Layout.astro";
+import { CartCheckout, CartItemsCount, CartTotalPrice, Product } from "@lloydjatkinson/astro-snipcart/astro";
+---
+
+<Layout title="">
+  <Container>
+
+    <CartCheckout>
+      <button>
+          Open basket
+      </button>
+  </CartCheckout>
+  <div>
+    Your cart contains <CartItemsCount /> items with a total of <CartTotalPrice />.
+  </div>
+
+  <!--Product
+    as="span"
+    id="SKU-0001"
+    name="Standard T-Shirt"
+    url="/product/standard-t-shirt"
+    price={ 12.99 }
+    description="Every day basic t-shirt"
+    image="/mxyz-hero.png">
+    <button>
+        Add
+    </button>
+  </Product-->
+
+  </Container>
+</Layout>

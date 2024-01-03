@@ -5,6 +5,7 @@ import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { ViewTransitions } from "astro:transitions";
+import { SnipcartSetup } from "@lloydjatkinson/astro-snipcart/astro";
 
 export interface Props {
   title: string;
@@ -37,6 +38,7 @@ const makeTitle = title
       canonical={canonicalURL}
     />
     <ViewTransitions />
+    <SnipcartSetup />
   </head>
   <body>
     <Navbar />
