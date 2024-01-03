@@ -6,9 +6,9 @@ const { post } = Astro.props;
 const { title, excerpt, feature_image, feature_image_alt, published_at } = post;
 const { data: authorData } = await getEntry("team", post.primary_author.slug);
 
+const locale = "en-US";
 const dateOptions: object = { year: "numeric", month: "long", day: "numeric" };
-
-const formattedPublishDate = new Date(published_at).toLocaleDateString("en-US", dateOptions );
+const formattedPublishDate = new Date(published_at).toLocaleDateString(locale, dateOptions );
 
 ---
 <li>

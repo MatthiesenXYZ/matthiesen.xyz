@@ -22,12 +22,10 @@ const { post } = Astro.props;
 const { title, html, feature_image, feature_image_alt, published_at, updated_at } = post;
 const { data: authorData } = await getEntry("team", post.primary_author.slug);
 
+const locale = "en-US";
 const dateOptions: object = { year: "numeric", month: "long", day: "numeric" };
-
-const formattedPublishDate = new Date(published_at).toLocaleDateString(
-   "en-US", dateOptions );
-const formattedUpdatedDate = new Date(updated_at).toLocaleDateString(
-   "en-US", dateOptions );
+const formattedPublishDate = new Date(published_at).toLocaleDateString(locale, dateOptions );
+const formattedUpdatedDate = new Date(updated_at).toLocaleDateString(locale, dateOptions );
    
 ---
 <Layout title={title}>
