@@ -1,19 +1,5 @@
 import { reference, z } from "astro:content";
 
-export const blogSchema = z.object({
-  draft: z.boolean(),
-  title: z.string(),
-  snippet: z.string(),
-  image: z.object({
-    src: z.string(),
-    alt: z.string(),
-  }),
-  publishDate: z.string().transform(str => new Date(str)),
-  author: reference('team').default('adam-matthiesen'),
-  category: z.string(),
-  tags: z.array(z.string()),
-})
-
 export const teamSchema = z.object({
   name: z.string(),
   title: z.string(),
@@ -50,4 +36,22 @@ export const servicesSchema = z.object({
   title: z.string(),
   icon: z.string().default('bi bi-balloon'),
   description: z.string(),
+})
+
+//
+//// UNUSED SCHEMAS
+//
+
+export const blogSchema = z.object({
+  draft: z.boolean(),
+  title: z.string(),
+  snippet: z.string(),
+  image: z.object({
+    src: z.string(),
+    alt: z.string(),
+  }),
+  publishDate: z.string().transform(str => new Date(str)),
+  author: reference('team').default('adam-matthiesen'),
+  category: z.string(),
+  tags: z.array(z.string()),
 })

@@ -7,10 +7,7 @@ import Sectionhead from '@components/ui/sectionhead.astro';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
 import RssIcon from '@components/crumbs/RssIcon.astro';
 
-const posts = await ghostClient.posts.browse({ limit: 'all', include: 'authors' })
-  .catch((err) => {
-    console.error(err);
-  });
+const posts = await ghostClient.posts.browse({ limit: 'all', include: 'authors', filter: 'visibility:public' }).catch((err) => { console.error(err); });
     
 ---
 <Layout title="Blog">

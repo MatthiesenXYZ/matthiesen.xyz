@@ -9,10 +9,7 @@ import GhostPowered from '@components/crumbs/GhostPowered.astro';
 import { Picture } from 'astro:assets';
 
 export async function getStaticPaths() {
-  const posts = await ghostClient.posts.browse({ limit: 'all', include: 'authors' })
-    .catch((err) => {
-      console.error(err);
-    });
+  const posts = await ghostClient.posts.browse({ limit: 'all', include: 'authors', filter: 'visibility:public' }).catch((err) => { console.error(err); });
   return posts.map((post) => {
     return {
       params: { slug: post.slug },
@@ -22,24 +19,15 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const { title, html, feature_image, feature_image_alt, published_at, updated_at } = post;
 const { data: authorData } = await getEntry("team", post.primary_author.slug);
-const { title, html, published_at, updated_at, feature_image, feature_image_alt } = post;
 
-const dateOptions: object = {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
-};
+const dateOptions: object = { year: "numeric", month: "long", day: "numeric" };
 
 const formattedPublishDate = new Date(published_at).toLocaleDateString(
-	"en-US",
-	dateOptions
-);
-
+   "en-US", dateOptions );
 const formattedUpdatedDate = new Date(updated_at).toLocaleDateString(
-  "en-US",
-  dateOptions
-);
+   "en-US", dateOptions );
    
 ---
 <Layout title={title}>
