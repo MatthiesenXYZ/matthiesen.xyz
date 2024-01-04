@@ -1,0 +1,36 @@
+---
+import { Picture } from "astro:assets";
+
+const { post } = Astro.props;
+const { title, excerpt, feature_image, feature_image_alt, published_at, primary_author } = post;
+
+const locale = "en-US";
+const dateOptions: object = { year: "numeric", month: "long", day: "numeric" };
+const formattedPublishDate = new Date(published_at).toLocaleDateString(locale, dateOptions );
+
+---
+<li>
+  <div class="divider" />
+  <a href={`/blog/drafts/${post.slug}`}> <div class="sr-only">Blog Post</div>
+    <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+      <Picture
+        src={feature_image? feature_image : "/mxyz-hero.png"}
+        alt={feature_image_alt? feature_image_alt : "alt"}
+        sizes="(max-width: 800px) 100vw, 800px"
+        width={800} height={600}
+        class="w-full rounded-md object-cover object-center"/>
+        <div class="sr-only">Blog Post Image</div>
+      <div>
+        <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">{title}</h2>
+        <div class="flex gap-2 mt-3"> <div class="sr-only">Author</div>
+          <a href="/blog/authors" class="inline-flex pr-2 mb-2  focus:outline-none rounded-full border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-slate-800 text-slate-300 border-gray-600 hover:bg-slate-600">
+              <img class="w-7 h-7 me-1 rounded-full" src={primary_author.profile_image} alt={primary_author.name}>
+              <span class="text-slate-300 mt-1">{primary_author.name}</span>
+          </a>
+          <time class="text-slate-300 mt-1" datetime={published_at}>{formattedPublishDate}</time>
+        </div>
+        {excerpt && (<p class="text-slate-400">{excerpt}</p>)}
+      </div>
+    </div>
+  </a>
+</li>

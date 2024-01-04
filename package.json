@@ -20,6 +20,7 @@
     "@sentry/astro": "^7.91.0",
     "@spotlightjs/astro": "^1.0.9",
     "@tailwindcss/typography": "^0.5.10",
+    "@tryghost/admin-api": "^1.13.11",
     "@tryghost/content-api": "^1.11.20",
     "@tryghost/helpers": "^1.1.89",
     "@types/tryghost__content-api": "^1.3.14",
