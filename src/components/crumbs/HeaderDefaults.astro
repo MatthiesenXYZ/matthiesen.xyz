@@ -1,22 +1,21 @@
 ---
 import { SEO } from "astro-seo";
-
+import { WebTitle , SEOdescription } from "headerVars";
+const isDevENV = import.meta.env.DEV;
+const { pageTitle } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
-const checkDevENV = import.meta.env.DEV
+export interface Props {
+  pageTitle: string;
+}
 
-const { title } = Astro.props;
-
-const makeTitle = title
-  ? title + " | " + "Matthiesen IT Services & Support"
-  : "Matthiesen IT Services & Support";
+const makeTitle = pageTitle ? pageTitle + " | " + WebTitle : WebTitle;
 ---
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
 <link rel="icon" type="image/png" href="/favicon.png" />
 <meta name="generator" content={Astro.generator} />
-<SEO
-  title={checkDevENV === true ? "AstroDEV - " + makeTitle : makeTitle}
-  description="IT Support and Services provided remotely from and local to the Seattle, Washington area"
-  canonical={canonicalURL}
+<SEO title={isDevENV === true ? "AstroDEV - " + makeTitle : makeTitle}
+     description={SEOdescription}
+     canonical={canonicalURL}
 />

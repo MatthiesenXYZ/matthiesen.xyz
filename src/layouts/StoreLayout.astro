@@ -16,19 +16,19 @@ export interface Props {
 // if themes: true, then you can select ANY DaisyUI Theme.
 const DaisyUiThemeSelection = "synthwave"
 
-const checkDevENV = import.meta.env.DEV
+const isDevENV = import.meta.env.DEV
 
 ---
 
 <!DOCTYPE html>
 <html lang="en" data-theme={DaisyUiThemeSelection}>
   <head>
-    <HeaderDefaults />
+    <HeaderDefaults pageTitle={Astro.props.title}/>
     <SnipcartSetup />
   </head>
   <body>
     <Navbar />
-    {checkDevENV === true ? <DevEnvironmentBanner /> : ""}
+    {isDevENV === true ? <DevEnvironmentBanner /> : ""}
     <div class="divider py-0 my-0" />
     <slot />
     <div class="divider py-0 mb-0 mt-5" />
