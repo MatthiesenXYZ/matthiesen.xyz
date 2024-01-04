@@ -1,20 +1,30 @@
 import { defineCollection } from 'astro:content';
 import { hddReportSchema, servicesSchema, storeSchema, teamSchema, testimonialsSchema } from '../lib/schemas'
 
-const teamCollection = defineCollection({ type: "data", schema: teamSchema });
+const team = defineCollection({ 
+  type: "data", schema: teamSchema 
+});
 
-const hddReportCollection = defineCollection({ type: "data", schema: hddReportSchema });
+const hddReport = defineCollection({ 
+  type: "data", schema: hddReportSchema 
+});
 
-const testimonialsCollection = defineCollection({ type: "data", schema: testimonialsSchema });
+const testimonials = defineCollection({ 
+  type: "data", schema: testimonialsSchema 
+});
 
-const servicesCollection = defineCollection({ type: "data", schema: servicesSchema });
+const services = defineCollection({ 
+  type: "data", schema: servicesSchema 
+});
 
-const storeCollection = defineCollection({ type: "data", schema: storeSchema })
+const store = defineCollection({ 
+  type: "data", schema: storeSchema 
+});
 
 export const collections = {
-  'team': teamCollection,
-  'testimonials': testimonialsCollection,
-  'hddreports': hddReportCollection,
-  'services': servicesCollection,
-  'store': storeCollection,
+  'team': team,
+  'testimonials': testimonials,
+  'hddreports': hddReport,
+  'services': services,
+  'store': store,
 };
