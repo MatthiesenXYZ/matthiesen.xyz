@@ -7,6 +7,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { ViewTransitions } from "astro:transitions";
 import SnipcartSetup from "@components/snipcart/SnipcartSetup.astro";
 import DevEnvironmentBanner from "@components/crumbs/DevEnvironmentBanner.astro";
+import { AstroContentDevtools } from "astro-content-devtools";
+import { collections } from "content/config";
 
 export interface Props {
   title: string;
@@ -45,6 +47,7 @@ const makeTitle = title
   </head>
   <body>
     <Navbar />
+    <!--{checkDevENV === true ? <AstroContentDevtools collections={collections} /> : ""} -->
     {checkDevENV === true ? <DevEnvironmentBanner /> : ""}
     <div class="divider py-0 my-0" />
     <slot />

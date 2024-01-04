@@ -17,6 +17,8 @@
     "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/inter": "^5.0.15",
+    "@sentry/astro": "^7.91.0",
+    "@spotlightjs/astro": "^1.0.9",
     "@tailwindcss/typography": "^0.5.10",
     "@tryghost/content-api": "^1.11.20",
     "@tryghost/helpers": "^1.1.89",
@@ -24,6 +26,7 @@
     "astro": "^4.0.8",
     "astro-icon": "^0.8.1",
     "astro-navbar": "^2.3.0",
+    "astro-robots-txt": "^1.0.0",
     "astro-seo": "^0.8.0",
     "bootstrap-icons": "^1.11.2",
     "markdown-it": "^14.0.0",
@@ -32,10 +35,13 @@
     "tailwindcss": "^3.3.5"
   },
   "devDependencies": {
+    "@astrojs/solid-js": "^3.0.3",
     "@types/dompurify": "^3.0.5",
+    "astro-content-devtools": "^0.0.4",
     "daisyui": "^4.4.24",
     "dayjs": "^1.11.10",
     "dompurify": "^3.0.6",
-    "fuse.js": "^7.0.0"
+    "fuse.js": "^7.0.0",
+    "solid-js": "^1.8.8"
   }
 }

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://matthiesen.xyz/sitemap-index.xml
