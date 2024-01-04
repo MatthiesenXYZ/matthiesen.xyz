@@ -7,4 +7,5 @@ interface ImportMetaEnv {
     readonly CONTENT_API_KEY: string;
     readonly CONTENT_API_URL: string;
     readonly CONTENT_API_VER: string;
+    readonly PUBLIC_SNIPCART_API_KEY: string;
 }

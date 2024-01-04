@@ -24,3 +24,13 @@ export const getGhostFeaturedPosts = async () => {
     })
     return posts;
 }
+
+export const getGhostAuthors = async () => {
+    const authors = await ghostClient.authors.browse()
+    return authors;
+}
+
+export const getGhostTags = async () => {
+    const tags = await ghostClient.tags.browse().include({"count.posts": true,})
+    return tags;
+}

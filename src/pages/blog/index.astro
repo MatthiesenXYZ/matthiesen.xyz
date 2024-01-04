@@ -6,6 +6,7 @@ import Container from '@components/ui/container.astro';
 import Sectionhead from '@components/ui/sectionhead.astro';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
 import RssIcon from '@components/crumbs/RssIcon.astro';
+import OurBlogAuthors from '@components/blog/OurBlogAuthors.astro';
 
 const posts = await getGhostPosts();
     
@@ -17,12 +18,16 @@ const posts = await getGhostPosts();
       
       <Sectionhead>
         <Fragment slot="title"> Blog <RssIcon /></Fragment>
-        <Fragment slot="desc">Our Posts as well as Tutorials we host for FOSS type software.</Fragment>
+        <Fragment slot="desc">Our Posts & Tutorials, Our Tutorials mainly Focus on FOSS (Free Open Source Software).</Fragment>
       </Sectionhead>
       
-      <main class="mt-16">
-        <ul class="grid gap-16 max-w-5xl mx-auto">
-        { posts.map((post) => <GhostPost post={post} />) }
+
+      <main class="mt-5 max-w-5xl mx-auto">
+
+        <OurBlogAuthors />
+
+        <ul class="grid gap-16 ">
+          { posts.map((post) => <GhostPost post={post} />) }
         </ul>
       </main>
       

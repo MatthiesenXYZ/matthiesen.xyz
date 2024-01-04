@@ -1,0 +1,29 @@
+---
+import GhostAuthors from "@components/blog/GhostAuthors.astro";
+import BackToBlog from "@components/crumbs/BackToBlog.astro";
+import Container from "@components/ui/container.astro";
+import Sectionhead from "@components/ui/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { getGhostAuthors } from "@lib/ghost";
+
+const authors = await getGhostAuthors();
+---
+
+
+<Layout title="Blog: Authors">
+    <Container>
+
+        <Sectionhead>
+          <Fragment slot="title">Our Blog Authors</Fragment>
+          <Fragment slot="desc">These are the Authors who make our blog what it is!</Fragment>
+        </Sectionhead>
+        
+        <div class="grid md:grid-cols-3 items-center gap-10 mx-auto max-w-4xl mt-12">
+        {authors.map((author) => <GhostAuthors ghostAuthor={author} />) }
+        </div>
+
+        <div class="my-20" />
+        <BackToBlog />
+
+    </Container>
+</Layout>
