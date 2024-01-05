@@ -1,7 +1,7 @@
 import GhostContentAPI from '@tryghost/content-api';
 const env = import.meta.env;
 
-const ghostClient = new GhostContentAPI({ 
+export const ghostClient = new GhostContentAPI({ 
     url: env.CONTENT_API_URL, 
     key: env.CONTENT_API_KEY, 
     version: env.CONTENT_API_VER
