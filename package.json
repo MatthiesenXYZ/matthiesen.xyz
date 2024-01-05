@@ -20,7 +20,7 @@
     "@tryghost/content-api": "^1.11.20",
     "@tryghost/helpers": "^1.1.89",
     "@types/tryghost__content-api": "^1.3.14",
-    "astro": "^4.0.8",
+    "astro": "^4.1.0",
     "astro-icon": "^0.8.1",
     "astro-navbar": "^2.3.0",
     "astro-robots-txt": "^1.0.0",

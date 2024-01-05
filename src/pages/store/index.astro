@@ -1,22 +1,13 @@
 ---
 import Container from "@components/ui/container.astro";
 import LiveRenderStore from "@layouts/LiveRender-Store.astro";
-import ShoppingCart from "@components/store/StoreCartWidget.astro";
 import StoreProductList from "@components/store/StoreProductList.astro";
 import StoreHeader from "@components/store/StoreHeader.astro";
 ---
 <LiveRenderStore title="Store">
   <Container>
     
-    <ShoppingCart />
     <StoreHeader />
-
-    <center>
-      <p class="text-lg mt-4 text-slate-300">
-        More products coming soon... Please stand by!
-      </p>
-    </center>
-
     <StoreProductList /> 
     
   </Container>
