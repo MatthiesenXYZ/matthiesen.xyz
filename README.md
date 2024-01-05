@@ -1,5 +1,7 @@
 # Matthiesen XYZ Support Center and IT Services
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b9ed51c3-d50a-494d-9745-c8fc7684ce67/deploy-status)](https://app.netlify.com/sites/mxyz-main/deploys)
+
 This Repo is the new website for the soon to be Adam Matthiesen Support Center and IT Services.  This website is based on the Astroshop template which uses Astro and TailwindCSS.  I will be modifying the template to suit my own needs and to replace the old MatthiesenXYZ repo as that website was meant to be a Portfolio.
 
 ## Credits
