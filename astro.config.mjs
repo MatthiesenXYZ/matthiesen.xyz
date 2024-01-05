@@ -4,6 +4,8 @@ import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import cloudflare from "@astrojs/cloudflare";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://matthiesen.xyz",
@@ -12,5 +14,5 @@ export default defineConfig({
     '/rss': '/rss.xml'
   },
   output: "server",
-  adapter: cloudflare()
+  adapter: netlify()
 });
