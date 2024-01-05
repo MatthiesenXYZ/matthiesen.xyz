@@ -1,0 +1,50 @@
+---
+import Footer from "@components/crumbs/footer.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import "@fontsource-variable/inter/index.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { ViewTransitions } from "astro:transitions";
+import SnipcartSetup from "@components/snipcart/SnipcartSetup.astro";
+import DevEnvironmentBanner from "@components/crumbs/DevEnvironmentBanner.astro";
+import { AstroContentDevtools } from "astro-content-devtools";
+import { collections } from "content/config";
+import HeaderDefaults from "@components/crumbs/HeaderDefaults.astro";
+
+export interface Props {
+  title: string;
+}
+
+export const prerender = true;
+
+// THIS SETTING MUST MATCH THEMES AVAILABLE FROM 'tailwind.config.cjs'
+// module.exports = { / .... / daisyui: { themes: ["synthwave"], }
+// if themes: true, then you can select ANY DaisyUI Theme.
+const DaisyUiThemeSelection = "synthwave"
+
+const isDevENV = import.meta.env.DEV
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme={DaisyUiThemeSelection}>
+  <head>
+    <HeaderDefaults pageTitle={Astro.props.title}/>
+    <ViewTransitions />
+    <SnipcartSetup />
+  </head>
+  <body>
+    <Navbar />
+    <!--AstroContentDevtools collections={collections} /-->
+    {isDevENV === true ? <DevEnvironmentBanner /> : ""}
+    <div class="divider py-0 my-0" />
+    <slot />
+    <div class="divider py-0 mb-0 mt-5" />
+    <Footer />
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

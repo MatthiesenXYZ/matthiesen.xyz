@@ -1,13 +1,13 @@
 ---
-import Layout from "@layouts/Layout.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
 import AboutDescription from "@components/about/AboutDescription.astro";
 import AboutThisWebsite from "@components/about/AboutThisWebsite.astro";
 import ListTeamMembers from "@components/about/ListTeamMembers.astro";
+import StaticRender from "@layouts/StaticRender.astro";
 
 ---
-<Layout title="About">
+<StaticRender title="About">
   <Container>
 
     <Sectionhead>
@@ -20,4 +20,4 @@ import ListTeamMembers from "@components/about/ListTeamMembers.astro";
     <AboutThisWebsite />
     
   </Container>
-</Layout>
+</StaticRender>

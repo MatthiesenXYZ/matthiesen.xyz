@@ -1,6 +1,6 @@
 import { getCollection } from "astro:content";
 
-export async function getPosts() {
+export async function getHDDReports() {
     const hddreports = (await getCollection('hddreports')); 
     return hddreports.map((hddreports) => ({
         serial: hddreports.data.serial, 
@@ -18,7 +18,7 @@ export async function getPosts() {
 
 export async function GET( { } ){
     return new Response(
-        JSON.stringify(await getPosts()),{
+        JSON.stringify(await getHDDReports()),{
             status: 200, 
             headers: {"Content-Type": "application/json"}
         }

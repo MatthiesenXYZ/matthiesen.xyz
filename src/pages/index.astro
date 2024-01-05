@@ -2,12 +2,12 @@
 import Container from "@components/ui/container.astro";
 import Services from "@components/index/services.astro";
 import Hero from "@components/index/hero.astro";
-import Layout from "@layouts/Layout.astro";
 import TestimonialsEmpty from "@components/index/TestimonialsEmpty.astro";
 import TestimonialCard from "@components/index/TestimonialCard.astro";
+import StaticRender from "@layouts/StaticRender.astro";
 ---
 
-<Layout title="">
+<StaticRender title="">
   <Container>
 
     <Hero />
@@ -16,4 +16,4 @@ import TestimonialCard from "@components/index/TestimonialCard.astro";
     <!--TestimonialCard /-->
     
   </Container>
-</Layout>
+</StaticRender>

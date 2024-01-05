@@ -1,12 +1,11 @@
 ---
-import Hddreportimg from "@components/hddreports/Hddreportimg.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
-import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import HddSearchWidget from "@components/hddreports/hddSearchWidget.astro";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
+import StaticRender from "@layouts/StaticRender.astro";
 dayjs.extend(localizedFormat);
 
 // Get HDD Report Collection
@@ -21,7 +20,7 @@ const PDFFALSE = "bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5
 
 ---
 
-<Layout title="HDD Wipe Reports">
+<StaticRender title="HDD Wipe Reports">
   <Container>
 
     <Sectionhead>
@@ -67,4 +66,4 @@ const PDFFALSE = "bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5
       ))}
     </div>
     </Container>
-</Layout>
+</StaticRender>

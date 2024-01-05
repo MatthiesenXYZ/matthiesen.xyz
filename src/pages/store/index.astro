@@ -1,11 +1,11 @@
 ---
 import Container from "@components/ui/container.astro";
-import StoreLayout from "@layouts/StoreLayout.astro";
+import LiveRenderStore from "@layouts/LiveRender-Store.astro";
 import ShoppingCart from "@components/store/StoreCartWidget.astro";
 import StoreProductList from "@components/store/StoreProductList.astro";
 import StoreHeader from "@components/store/StoreHeader.astro";
 ---
-<StoreLayout title="Store">
+<LiveRenderStore title="Store">
   <Container>
     
     <ShoppingCart />
@@ -20,4 +20,4 @@ import StoreHeader from "@components/store/StoreHeader.astro";
     <StoreProductList /> 
     
   </Container>
-</Layout>
+</LiveRenderStore>

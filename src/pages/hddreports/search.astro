@@ -1,5 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
+import LiveRender from "@layouts/LiveRender.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
 import dayjs from "dayjs";
@@ -8,7 +8,7 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.extend(localizedFormat);
 ---
 
-<Layout title="HDD Wipe Reports: Search">
+<LiveRender title="HDD Wipe Reports: Search">
   <Container>
 
     <Sectionhead>
@@ -43,7 +43,7 @@ dayjs.extend(localizedFormat);
   </section>
 
   </Container>
-</Layout>
+</LiveRender>
 
 <script>
 // IMPORTS
@@ -108,8 +108,8 @@ function nothinghere() {
 }
 
 function generateSearchList(results) {
-  return results.map((r) => {
-    const { serial, make, model, manuDate, date, capacity, size, type, isSSD, pdf } = r.item;
+  return results.map((result) => {
+    const { serial, make, model, manuDate, date, capacity, size, type, isSSD, pdf } = result.item;
     const dateasISO = new Date(date).toISOString();
     const dateasLocal = new Date(date).toLocaleDateString("en-us",{year: "numeric", month: "short", day: "numeric"});
     const fixManuDateLocal = dayjs(manuDate).format("ll");

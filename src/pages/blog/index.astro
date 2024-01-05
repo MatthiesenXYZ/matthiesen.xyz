@@ -1,7 +1,7 @@
 ---
 import GhostPost from '@components/blog/GhostPost.astro';
 import { getGhostPosts } from '@lib/ghost';
-import Layout from '@layouts/Layout.astro';
+import LiveRender from '@layouts/LiveRender.astro';
 import Container from '@components/ui/container.astro';
 import Sectionhead from '@components/ui/sectionhead.astro';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
@@ -11,7 +11,7 @@ import OurBlogAuthors from '@components/blog/OurBlogAuthors.astro';
 const posts = await getGhostPosts();
     
 ---
-<Layout title="Blog">
+<LiveRender title="Blog">
     <Container>
 
       <GhostPowered />
@@ -32,4 +32,4 @@ const posts = await getGhostPosts();
       </main>
       
     </Container>
-</Layout>
+</LiveRender>

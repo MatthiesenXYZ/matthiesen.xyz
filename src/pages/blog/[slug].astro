@@ -1,34 +1,33 @@
 ---
 import SupportOurWork from '@components/crumbs/SupportOurWork.astro';
-import  { ghostClient }  from '@lib/ghost';
-import Layout from '@layouts/Layout.astro';
+import  { PI, ghostClient }  from '@lib/ghost';
+import LiveRender from '@layouts/LiveRender.astro';
 import Container from '@components/ui/container.astro';
 import BackToBlog from '@components/crumbs/BackToBlog.astro';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
 import { Picture } from 'astro:assets';
 
+// GET SLUG
 const { slug } = Astro.params;
+// IF SLUG DOSNT EXIST THEN THROW ERROR
+if(slug === undefined){ throw new Error('Slug is required'); }
+// GET POSTS FROM GHOST
+const ghostPost = await ghostClient.posts.read({ 
+  slug: `${slug}`, include: `${PI}`}) 
+// IF NO POST AVAILABLE THEN REDIRECT TO 404
+if(ghostPost === undefined) { return Astro.redirect('/404'); }
 
-if(slug === undefined){
-  throw new Error('Slug is required');
-}
-const post = await ghostClient.posts.read({ 
-  slug: `${slug}`,
-  include: ['authors', 'tags'] }) 
+// GET PAGE VARIABLES AND SETTINGS FROM PAGE CREATION
+const { title, html, feature_image, feature_image_alt, published_at, updated_at, primary_author } = await ghostPost;
 
-if(post === undefined) {
-  return Astro.redirect('/404');
-}
-
-const { title, html, feature_image, feature_image_alt, published_at, updated_at, primary_author } = await post;
-
+// DATE FORMATING/FIXES
 const locale = "en-US";
 const dateOptions: object = { year: "numeric", month: "long", day: "numeric" };
 const formattedPublishDate = new Date(published_at).toLocaleDateString(locale, dateOptions );
 const formattedUpdatedDate = new Date(updated_at).toLocaleDateString(locale, dateOptions );
    
 ---
-<Layout title={title}>
+<LiveRender title={title}>
     <Container>
       
       <div class="mx-auto max-w-5xl mt-5">
@@ -96,4 +95,4 @@ const formattedUpdatedDate = new Date(updated_at).toLocaleDateString(locale, dat
       <BackToBlog />
   
     </Container>
-</Layout>
+</LiveRender>
