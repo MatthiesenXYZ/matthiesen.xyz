@@ -8,7 +8,7 @@ import cloudflare from "@astrojs/cloudflare";
 // https://astro.build/config
 export default defineConfig({
   site: "https://matthiesen.xyz",
-  integrations: [tailwind(), mdx(), sitemap(), spotlightjs(), robotsTxt()],
+  integrations: [tailwind(), mdx(), sitemap(), robotsTxt()],
   redirects: {
     '/rss': '/rss.xml'
   },
