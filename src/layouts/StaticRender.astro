@@ -4,7 +4,7 @@ import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { ViewTransitions } from "astro:transitions";
-import SnipcartSetup from "@components/snipcart/SnipcartSetup.astro";
+import { SCSetupScript } from "@adammatthiesen/astro-snipcart";
 import DevEnvironmentBanner from "@components/crumbs/DevEnvironmentBanner.astro";
 import { AstroContentDevtools } from "astro-content-devtools";
 import { collections } from "content/config";
@@ -29,7 +29,7 @@ const isDevENV = import.meta.env.DEV
   <head>
     <HeaderDefaults pageTitle={Astro.props.title}/>
     <ViewTransitions />
-    <SnipcartSetup />
+    <SCSetupScript />
   </head>
   <body>
     <Navbar />

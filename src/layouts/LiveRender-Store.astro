@@ -3,7 +3,7 @@ import Footer from "@components/crumbs/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import SnipcartSetup from "@components/snipcart/SnipcartSetup.astro";
+import { SCSetupScript } from "@adammatthiesen/astro-snipcart";
 import DevEnvironmentBanner from "@components/crumbs/DevEnvironmentBanner.astro";
 import HeaderDefaults from "@components/crumbs/HeaderDefaults.astro";
 
@@ -24,7 +24,7 @@ const isDevENV = import.meta.env.DEV
 <html lang="en" data-theme={DaisyUiThemeSelection}>
   <head>
     <HeaderDefaults pageTitle={Astro.props.title}/>
-    <SnipcartSetup />
+    <SCSetupScript />
   </head>
   <body>
     <Navbar />

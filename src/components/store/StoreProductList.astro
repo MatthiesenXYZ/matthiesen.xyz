@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { Picture } from "astro:assets";
-import Product from "@components/snipcart/Product.astro";
+import { SCMakeProduct } from "@adammatthiesen/astro-snipcart";
 
 const storeItems = await getCollection("store");
 ---
@@ -28,7 +28,7 @@ const storeItems = await getCollection("store");
       </div>
       <div class="flex-1" />
       <div class="flex-2 justify-end justify-self-end justify-items-end">
-        <Product
+        <SCMakeProduct
           id={storeItem.id} 
           name={storeItem.data.name}
           url={storeItem.data.url} 
@@ -36,7 +36,7 @@ const storeItems = await getCollection("store");
           description={storeItem.data.description} 
           image={storeItem.data.image}>
           <button class="text-slate-200 bg-gradient-to-r from-blue-500 via-blue-700 to-blue-900 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-0 ">Add to cart</button>
-        </Product>
+        </SCMakeProduct>
       </div>
     </div>
   </article>
