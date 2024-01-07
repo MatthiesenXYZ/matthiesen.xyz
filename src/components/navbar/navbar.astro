@@ -4,12 +4,14 @@ import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import { navigationMenu } from "navMenu";
 import { WebTitle } from "headerVars";
+import { Image } from "astro:assets";
+import favicon from '@assets/favicon.png'
 ---
 <Container class="w-auto lg:max-w-full">
   <header class="flex flex-col lg:flex-row justify-between items-center my-3">
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between">
-          <img class="inline" height="64px" width="64px" alt="Logo" src="/favicon.png">
+          <Image src={favicon} height="64" width="64" alt="logo" class="inline"/>
           <span class="text-white ml-5 text-2xl font-bold">{WebTitle}</span>
         <div class="block lg:hidden">
           <MenuIcon class="w-4 h-4 text-white" />

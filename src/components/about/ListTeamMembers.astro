@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 
 const TeamMembers = await getCollection("team");
 ---
@@ -9,7 +9,7 @@ const TeamMembers = await getCollection("team");
   {TeamMembers.map((teamMemberEntry) => (
       <div class="group bg-slate-800 rounded-badge hover:-translate-y-1 shadow-xl shadow-slate-950">
         <div class="w-full aspect-square">
-          <Picture
+          <Image
             src={teamMemberEntry.data.avatar}
             alt={teamMemberEntry.data.name}
             sizes="(max-width: 800px) 100vw, 400px"

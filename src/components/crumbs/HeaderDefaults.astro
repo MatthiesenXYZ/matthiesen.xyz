@@ -4,6 +4,7 @@ import { WebTitle , SEOdescription } from "headerVars";
 const isDevENV = import.meta.env.DEV;
 const { pageTitle } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+import favicon from '@assets/favicon.png'
 
 export interface Props {
   pageTitle: string;
@@ -13,7 +14,7 @@ const makeTitle = pageTitle ? pageTitle + " | " + WebTitle : WebTitle;
 ---
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="icon" type="image/png" href={favicon.src} />
 <meta name="generator" content={Astro.generator} />
 <SEO title={isDevENV === true ? "AstroDEV - " + makeTitle : makeTitle}
      description={SEOdescription}

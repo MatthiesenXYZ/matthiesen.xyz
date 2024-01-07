@@ -11,7 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@adammatthiesen/astro-snipcart": "^0.0.2",
+    "@adammatthiesen/astro-snipcart": "^0.0.5",
     "@astrojs/netlify": "^4.1.0",
     "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.4",
