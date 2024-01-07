@@ -17,8 +17,8 @@ const posts = await getGhostFeaturedPosts();
 ) : (
     <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-10 gap-6">
       {posts.map((post) => ( 
-        <article class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-900 border-slate-600">
-            <div class="w-full rounded-md transition object-cover object-center">
+        <div class="relative p-4 h-auto border rounded-lg shadow-xl shadow-slate-950 bg-slate-900 border-slate-600">
+            <div class=" w-full rounded-md transition object-cover object-center">
             <Picture 
                 class="w-full rounded-md transition object-cover object-center"
                 width={800} height={600} 
@@ -26,16 +26,19 @@ const posts = await getGhostFeaturedPosts();
                 alt={post.feature_image_alt ? post.feature_image_alt : "no alt available"}/>
             </div>
             <div class="mt-1">
-            <h3 class="font-semibold inline text-lg">{post.title}</h3>
-            <p class="text-slate-300 mt-0 leading-relaxed">{post.excerpt}</p>
+            <h3 class="font-semibold text-lg">{post.title}</h3>
+            <p class="text-slate-300 mt-0 mb-8">{post.excerpt}</p>
             </div>
-            <div class="flex flex-row mt-5">
-                <div class="flex-1" />
-                <div class="flex-none justify-end justify-self-end justify-items-end">
-                    <a href={`/blog/${post.slug}`} class="text-slate-200 bg-gradient-to-r from-blue-500 via-blue-700 to-blue-900 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-0 ">Read More</a>
-                </div>
+            <div class="absolute left-1 bottom-0">
+                <a href="/blog/authors" class="inline-flex pr-2 mb-2  focus:outline-none rounded-full border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-slate-800 text-slate-300 border-gray-600 hover:bg-slate-600">
+                    <img class="w-7 h-7 me-1 rounded-full" src={post.primary_author.profile_image} alt={post.primary_author.name}>
+                    <span class="text-slate-300 mt-1">{post.primary_author.name}</span>
+                </a>
             </div>
-        </article>
+            <div class="absolute bottom-0 right-1">
+                <a href={`/blog/${post.slug}`} class="inline-flex text-slate-200 bg-gradient-to-r from-blue-500 via-blue-700 to-blue-900 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-2 py-1.5 text-center me-2 mb-2 ">Read...</a>
+            </div>
+        </div>
       ))}
     </div>
 )}

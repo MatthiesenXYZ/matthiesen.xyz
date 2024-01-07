@@ -21,7 +21,6 @@ export const prerender = true;
 // if themes: true, then you can select ANY DaisyUI Theme.
 const DaisyUiThemeSelection = "synthwave"
 
-const isDevENV = import.meta.env.DEV
 ---
 
 <!DOCTYPE html>
@@ -33,9 +32,7 @@ const isDevENV = import.meta.env.DEV
   </head>
   <body>
     <Navbar />
-    <!--AstroContentDevtools collections={collections} /-->
-    {isDevENV === true ? <DevEnvironmentBanner /> : ""}
-    <div class="divider py-0 my-0" />
+    <div class="pt-28" />
     <slot />
     <div class="divider py-0 mb-0 mt-5" />
     <Footer />
