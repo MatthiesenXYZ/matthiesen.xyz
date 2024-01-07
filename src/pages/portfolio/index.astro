@@ -1,0 +1,18 @@
+---
+import BackToAbout from "@components/about/BackToAbout.astro";
+import Container from "@components/ui/container.astro";
+import Sectionhead from "@components/ui/sectionhead.astro";
+import StaticRender from "@layouts/StaticRender.astro";
+---
+<StaticRender title="Portfolio: Adam Matthiesen">
+    <Container>
+        
+        <Sectionhead>
+            <Fragment slot="title">Portfolio Error</Fragment>
+            <Fragment slot="desc">Portfolio not Found...</Fragment>
+        </Sectionhead>
+
+        <BackToAbout />
+
+    </Container>
+</StaticRender>
