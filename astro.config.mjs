@@ -12,5 +12,5 @@ export default defineConfig({
     '/rss': '/rss.xml'
   },
   output: "server",
-  adapter: netlify({imageCDN: false})
+  adapter: netlify()
 });
