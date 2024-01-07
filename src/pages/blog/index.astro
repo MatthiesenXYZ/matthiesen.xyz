@@ -7,9 +7,9 @@ import Sectionhead from '@components/ui/sectionhead.astro';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
 import RssIcon from '@components/crumbs/RssIcon.astro';
 import OurBlogAuthors from '@components/blog/OurBlogAuthors.astro';
+import TagIndex from '@components/blog/TagIndex.astro';
 
 const posts = await getGhostPosts();
-const tags = await getGhostTags();
     
 ---
 <LiveRender title="Blog">
@@ -26,17 +26,7 @@ const tags = await getGhostTags();
       <main class="mt-5 max-w-5xl mx-auto">
 
         <OurBlogAuthors />
-
-        {tags && (
-          <div class="text-white mt-2">
-            Blog Tags: <span class="text-gray-400"> 
-              {tags.map((tag) => (
-              <a href={`/blog/tag/${tag.slug}`}> 
-                #{tag.name}({tag.count.posts})
-              </a>
-              ))} </span>
-          </div>
-        )}
+        <TagIndex />
 
         <ul class="grid gap-16 ">
           { posts.map((post) => <GhostPost post={post} />) }

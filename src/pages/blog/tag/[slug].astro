@@ -8,6 +8,7 @@ import OurBlogAuthors from '@components/blog/OurBlogAuthors.astro';
 import GhostPost from '@components/blog/GhostPost.astro';
 import BackToBlog from '@components/crumbs/BackToBlog.astro';
 import RssIcon from '@components/crumbs/RssIcon.astro';
+import TagIndex from '@components/blog/TagIndex.astro';
 
 const { slug } = Astro.params;
 // IF SLUG DOSNT EXIST THEN THROW ERROR
@@ -30,7 +31,7 @@ const posts = await ghostClient.posts.browse({
       
       <Sectionhead>
         <Fragment slot="title"> Blog <RssIcon />
-            <br> Tag - <div class="text-gray-400 inline">#{ghostTag.name}</div></Fragment>
+            <br> Tag - <div class="text-gray-400 inline"><i class="bi bi-tag"/>{ghostTag.name}</div></Fragment>
         <Fragment slot="desc">{ghostTag.description && (`"` + ghostTag.description + `" - `)}Total Posts: {ghostTag.count.posts}</Fragment>
       </Sectionhead>
       <BackToBlog />
@@ -38,6 +39,7 @@ const posts = await ghostClient.posts.browse({
       <main class="mt-5 max-w-5xl mx-auto">
 
         <OurBlogAuthors />
+        <TagIndex />
 
         <ul class="grid gap-16 ">
             { posts.map((post) => <GhostPost post={post} />) }
