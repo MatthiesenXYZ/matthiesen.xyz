@@ -14,7 +14,7 @@ const formattedPublishDate = new Date(published_at).toLocaleDateString(locale, d
   <a href={`/blog/${post.slug}`}> <div class="sr-only">Blog Post</div>
     <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
       <Picture
-        src={feature_image? feature_image : "/mxyz-hero.png"}
+        src={feature_image}
         alt={feature_image_alt? feature_image_alt : "alt"}
         sizes="(max-width: 800px) 100vw, 800px"
         width={800} height={600}

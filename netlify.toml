@@ -1,2 +1,2 @@
 [images]
-  remote_images = ["https://ghost.matthiesen.xyz/.*"]
+  remote_images = ["https://ghost.matthiesen.xyz/.*", "https://www.gravatar.com/.*"]
