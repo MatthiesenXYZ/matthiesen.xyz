@@ -1,6 +1,6 @@
 ---
 import GhostPost from '@components/blog/GhostPost.astro';
-import { getGhostPosts } from '@lib/ghost';
+import { getGhostPosts, getGhostTags } from '@lib/ghost';
 import LiveRender from '@layouts/LiveRender.astro';
 import Container from '@components/ui/container.astro';
 import Sectionhead from '@components/ui/sectionhead.astro';
@@ -9,6 +9,7 @@ import RssIcon from '@components/crumbs/RssIcon.astro';
 import OurBlogAuthors from '@components/blog/OurBlogAuthors.astro';
 
 const posts = await getGhostPosts();
+const tags = await getGhostTags();
     
 ---
 <LiveRender title="Blog">
@@ -25,6 +26,17 @@ const posts = await getGhostPosts();
       <main class="mt-5 max-w-5xl mx-auto">
 
         <OurBlogAuthors />
+
+        {tags && (
+          <div class="text-white mt-2">
+            Blog Tags: <span class="text-gray-400"> 
+              {tags.map((tag) => (
+              <a href={`/blog/tag/${tag.slug}`}> 
+                #{tag.name}({tag.count.posts})
+              </a>
+              ))} </span>
+          </div>
+        )}
 
         <ul class="grid gap-16 ">
           { posts.map((post) => <GhostPost post={post} />) }

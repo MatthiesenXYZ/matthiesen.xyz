@@ -25,7 +25,8 @@ export const getGhostAuthors = async () => {
 }
 
 export const getGhostTags = async () => {
-    const tags = await ghostClient.tags.browse()
-        .include({"count.posts": true,})
+    const tags = await ghostClient.tags.browse({
+        include: `count.posts`
+    })
     return tags;
 }
