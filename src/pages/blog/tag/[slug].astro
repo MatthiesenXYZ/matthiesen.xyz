@@ -1,28 +1,26 @@
 ---
 import LiveRender from '@layouts/LiveRender.astro';
 import Container from '@components/ui/container.astro';
-import { ghostClient } from '@lib/ghost';
+import { PI, ghostClient } from '@lib/ghost';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
 import Sectionhead from '@components/ui/sectionhead.astro';
 import OurBlogAuthors from '@components/blog/OurBlogAuthors.astro';
 import GhostPost from '@components/blog/GhostPost.astro';
 import BackToBlog from '@components/crumbs/BackToBlog.astro';
+import RssIcon from '@components/crumbs/RssIcon.astro';
 
 const { slug } = Astro.params;
 // IF SLUG DOSNT EXIST THEN THROW ERROR
 if(slug === undefined){ throw new Error('Slug is required'); }
+// GET TAG
 const ghostTag = await ghostClient.tags.read({
-        slug: `${slug}`,
-        include: `count.posts`
-})
+        slug: `${slug}`, include: `count.posts` })
 // IF NO TAG AVAILABLE THEN REDIRECT TO 404
 if(ghostTag === undefined) { return Astro.redirect('/404'); }
 
 const posts = await ghostClient.posts.browse({
   filter: `tag:${ghostTag.slug}`,
-  limit: 'all',
-  include: ['tags', 'authors'],
-});
+  limit: 'all', include: PI });
 
 ---
 <LiveRender title="tags">
@@ -31,8 +29,9 @@ const posts = await ghostClient.posts.browse({
       <GhostPowered />
       
       <Sectionhead>
-        <Fragment slot="title"> Blog ( #{ghostTag.name} )</Fragment>
-        <Fragment slot="desc">Total Posts: {ghostTag.count.posts}</Fragment>
+        <Fragment slot="title"> Blog <RssIcon />
+            <br> Tag - <div class="text-gray-400 inline">#{ghostTag.name}</div></Fragment>
+        <Fragment slot="desc">{ghostTag.description && (`"` + ghostTag.description + `" - `)}Total Posts: {ghostTag.count.posts}</Fragment>
       </Sectionhead>
       <BackToBlog />
 
