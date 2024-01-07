@@ -1,0 +1,42 @@
+---
+import { getGhostFeaturedPosts } from "@lib/ghost";
+import { Picture } from "astro:assets";
+import defaultImage from '@assets/component-assets/mxyz-hero.png';
+
+const posts = await getGhostFeaturedPosts();
+---
+<div class="mt-16 md:mt-10">
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+        Featured posts from our Blog
+    </h2>
+</div>
+
+{posts.length === 0 ? (
+    <div class="font-bold mt-10 ml-10"> Sorry</div>
+    <p class="text-gray-500 dark:text-gray-400 ml-10">There are no Featured posts at the moment!  Check back later!</p>
+) : (
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-10 gap-6">
+      {posts.map((post) => ( 
+        <article class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-900 border-slate-600">
+            <div class="w-full rounded-md transition object-cover object-center">
+            <Picture 
+                class="w-full rounded-md transition object-cover object-center"
+                width={800} height={600} 
+                src={post.feature_image ? post.feature_image : defaultImage} 
+                alt={post.feature_image_alt ? post.feature_image_alt : "no alt available"}/>
+            </div>
+            <div class="mt-1">
+            <h3 class="font-semibold inline text-lg">{post.title}</h3>
+            <p class="text-slate-300 mt-0 leading-relaxed">{post.excerpt}</p>
+            </div>
+            <div class="flex flex-row mt-5">
+                <div class="flex-1" />
+                <div class="flex-none justify-end justify-self-end justify-items-end">
+                    <a href={`/blog/${post.slug}`} class="text-slate-200 bg-gradient-to-r from-blue-500 via-blue-700 to-blue-900 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-3 py-1.5 text-center me-2 mb-0 ">Read More</a>
+                </div>
+            </div>
+        </article>
+      ))}
+    </div>
+)}
+    
