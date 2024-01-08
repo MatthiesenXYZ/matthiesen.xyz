@@ -14,6 +14,6 @@ export const navigationMenu = [
       {title: "Support Center", target: "_blank", 
         path: "https://support.matthiesen.xyz"},
       {title: "Billing & Invoicing", target: "_blank", 
-        path: "https://mxyz.invoicing.co/client/login"} 
+        path: "https://billing.matthiesen.xyz/client/login"} 
     ]},
 ];
