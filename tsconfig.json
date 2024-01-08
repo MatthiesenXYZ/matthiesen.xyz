@@ -12,7 +12,8 @@
       "@layouts/*": ["layouts/*"],
       "@assets/*": ["assets/*"],
       "@pages/*": ["pages/*"],
-      "@scripts/*":["scripts/*"]
+      "@scripts/*":["scripts/*"],
+      "@styles/*":["styles/*"]
     }
   }
 }
