@@ -1,22 +1,35 @@
 ---
 import { SEO } from "astro-seo";
-import { WebTitle , SEOdescription } from "headerVars";
-const isDevENV = import.meta.env.DEV;
-const { pageTitle } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+import { Title , SEOdescription } from "headerVars";
 import favicon from '@assets/favicon.png'
+import { SCSetupScript } from "@adammatthiesen/astro-snipcart";
+import { ViewTransitions } from "astro:transitions";
+
+const devENV = import.meta.env.DEV;
+const aURL = Astro.url.pathname;
+const SITE = Astro.site;
 
 export interface Props {
   pageTitle: string;
+  viewTransEnabled: boolean;
 }
 
-const makeTitle = pageTitle ? pageTitle + " | " + WebTitle : WebTitle;
+const { pageTitle, viewTransEnabled } = Astro.props;
+const cURL = new URL(aURL, SITE).toString();
+const mTitle = pageTitle ? pageTitle + " | " + Title : Title;
 ---
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/png" href={favicon.src} />
-<meta name="generator" content={Astro.generator} />
-<SEO title={isDevENV === true ? "AstroDEV - " + makeTitle : makeTitle}
-     description={SEOdescription}
-     canonical={canonicalURL}
-/>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/png" href={favicon.src} />
+  <meta name="generator" content={Astro.generator} />
+  <SEO 
+    title={devENV === true ? "AstroDEV - " + mTitle : mTitle}
+    description={SEOdescription}
+    canonical={cURL}/>
+  { viewTransEnabled 
+    ? <ViewTransitions /> 
+    : null
+  }
+  <SCSetupScript />
+</head>

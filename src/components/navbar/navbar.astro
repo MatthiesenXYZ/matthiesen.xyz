@@ -3,7 +3,7 @@ import Container from "@components/ui/container.astro";
 import Dropdown from "./dropdown.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import { navigationMenu } from "navMenu";
-import { WebTitle } from "headerVars";
+import { Title } from "headerVars";
 import { Image } from "astro:assets";
 import favicon from '@assets/favicon.png'
 import DevEnvironmentBanner from "@components/crumbs/DevEnvironmentBanner.astro";
@@ -14,7 +14,7 @@ const isDevENV = import.meta.env.DEV
     <Astronav>
       <div class="flex-none w-full lg:w-auto items-center justify-between">
           <Image src={favicon} height="64" width="64" alt="logo" class="inline"/>
-          <span class="flex-inline text-white ml-5 text-2xl font-bold">{WebTitle}</span>
+          <span class="flex-inline text-white ml-5 text-2xl font-bold">{Title}</span>
         <div class="absolute top-6 right-6 lg:hidden">
           <MenuIcon class="w-8 h-8 text-white" />
         </div>

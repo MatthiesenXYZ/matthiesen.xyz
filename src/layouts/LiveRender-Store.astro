@@ -1,43 +1,21 @@
 ---
-import Footer from "@components/crumbs/footer.astro";
-import Navbar from "@components/navbar/navbar.astro";
+import HeaderDefaults from "@components/crumbs/HeaderDefaults.astro";
+import BodyDefaults from "@components/crumbs/BodyDefaults.astro";
+
+// IMPORT CSS STYLES
+import '@styles/global.css';
 import "@fontsource-variable/inter/index.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { SCSetupScript } from "@adammatthiesen/astro-snipcart";
-import DevEnvironmentBanner from "@components/crumbs/DevEnvironmentBanner.astro";
-import HeaderDefaults from "@components/crumbs/HeaderDefaults.astro";
 
-export interface Props {
-  title: string;
-}
-
-// THIS SETTING MUST MATCH THEMES AVAILABLE FROM 'tailwind.config.cjs'
-// module.exports = { / .... / daisyui: { themes: ["synthwave"], }
-// if themes: true, then you can select ANY DaisyUI Theme.
-const DaisyUiThemeSelection = "synthwave"
-
-const isDevENV = import.meta.env.DEV
-
+export interface Props { title: string; }
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme={DaisyUiThemeSelection}>
-  <head>
-    <HeaderDefaults pageTitle={Astro.props.title}/>
-    <SCSetupScript />
-  </head>
-  <body>
-    <Navbar />
-    <div class="pt-36" />
+<html lang="en">
+  <HeaderDefaults 
+    pageTitle={Astro.props.title}  
+    viewTransEnabled={false}/>
+  <BodyDefaults>
     <slot />
-    <div class="divider py-0 mb-0 mt-5" />
-    <Footer />
-    <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
-      img {
-        content-visibility: auto;
-      }
-    </style>
-  </body>
+  </BodyDefaults>
 </html>

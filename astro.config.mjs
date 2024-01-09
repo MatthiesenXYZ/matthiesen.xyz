@@ -7,7 +7,10 @@ import netlify from "@astrojs/netlify";
 // https://astro.build/config
 export default defineConfig({
   site: "https://matthiesen.xyz",
-  integrations: [tailwind(), sitemap(), robotsTxt()],
+  integrations: [tailwind({
+    applyBaseStyles: false,
+    nesting: true,
+  }), sitemap(), robotsTxt()],
   redirects: {
     '/rss': '/rss.xml'
   },

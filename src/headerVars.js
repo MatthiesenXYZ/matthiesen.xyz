@@ -1,2 +1,3 @@
-export const WebTitle = "Matthiesen IT Services & Support";
+export const Title = "Matthiesen IT Services & Support";
 export const SEOdescription = "IT Support and Services provided remotely from and local to the Seattle, Washington area";
+export const RSSDescription = "From helping you setup your computer, to building a datacenter.  From a Support Center to a Managed Service provider. Any IT Project is not to big or to small, Need a website? No Problem!  Looking to reduce monthly or yearly costs and switch to the Open Source alternative? Just Contact us for help!";
