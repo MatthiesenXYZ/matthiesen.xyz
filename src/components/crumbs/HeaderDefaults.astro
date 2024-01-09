@@ -3,7 +3,7 @@ import { SEO } from "astro-seo";
 import { Title , SEOdescription } from "headerVars";
 import favicon from '@assets/favicon.png'
 import { ViewTransitions } from "astro:transitions";
-import SCSetupVUE from "@components/store/SCSetupVUE.vue";
+import { SCSetupVUE } from "@adammatthiesen/astro-snipcart/vue"
 
 const devENV = import.meta.env.DEV;
 const aURL = Astro.url.pathname;
