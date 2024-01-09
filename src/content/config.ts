@@ -1,5 +1,4 @@
 import { defineCollection, z } from 'astro:content';
-import defaultProfileImage from '@assets/default-review.jpg';
 
 const store = defineCollection({ 
   type: "data", 
@@ -22,7 +21,7 @@ const testimonials = defineCollection({
       desc: z.string(),
       link: z.string().optional(),
     }).optional(),
-    avatar: image().default(defaultProfileImage),
+    avatar: image(),
     title: z.string(),
     body: z.string(),
   }),
@@ -34,7 +33,7 @@ const team = defineCollection({
     name: z.string(),
     title: z.string(),
     profileurl: z.string().optional(),
-    avatar: image().default(defaultProfileImage),
+    avatar: image(),
   }),
 });
 
