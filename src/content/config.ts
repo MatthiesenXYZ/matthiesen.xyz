@@ -1,4 +1,6 @@
 import { defineCollection, z } from 'astro:content';
+import defaultStore from '@assets/component-assets/mxyz-hero.png';
+import defaultProfile from '@assets/default-review.jpg';
 
 const store = defineCollection({ 
   type: "data", 
@@ -6,7 +8,7 @@ const store = defineCollection({
     id: z.string(),
     name: z.string(),
     url: z.string(),
-    image: image(),
+    image: image().default(defaultStore),
     price: z.number(),
     description: z.string(), 
   }),
@@ -21,7 +23,7 @@ const testimonials = defineCollection({
       desc: z.string(),
       link: z.string().optional(),
     }).optional(),
-    avatar: image(),
+    avatar: image().default(defaultProfile),
     title: z.string(),
     body: z.string(),
   }),
@@ -33,7 +35,7 @@ const team = defineCollection({
     name: z.string(),
     title: z.string(),
     profileurl: z.string().optional(),
-    avatar: image(),
+    avatar: image().default(defaultProfile),
   }),
 });
 
