@@ -11,10 +11,9 @@ const SITE = Astro.site;
 
 export interface Props {
   pageTitle: string;
-  viewTransEnabled: boolean;
 }
 
-const { pageTitle, viewTransEnabled } = Astro.props;
+const { pageTitle } = Astro.props;
 const cURL = new URL(aURL, SITE).toString();
 const mTitle = pageTitle ? pageTitle + " | " + Title : Title;
 ---
@@ -27,9 +26,6 @@ const mTitle = pageTitle ? pageTitle + " | " + Title : Title;
     title={devENV === true ? "AstroDEV - " + mTitle : mTitle}
     description={SEOdescription}
     canonical={cURL}/>
-  { viewTransEnabled 
-    ? <ViewTransitions /> 
-    : null
-  }
+  <ViewTransitions />
   <SCSetupVUE transition:persist client:idle/>
 </head>
