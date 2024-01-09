@@ -9,9 +9,7 @@ const devENV = import.meta.env.DEV;
 const aURL = Astro.url.pathname;
 const SITE = Astro.site;
 
-export interface Props {
-  pageTitle: string;
-}
+export interface Props { pageTitle: string; }
 
 const { pageTitle } = Astro.props;
 const cURL = new URL(aURL, SITE).toString();
