@@ -16,7 +16,6 @@
       "@pages/*": ["pages/*"],
       "@scripts/*": ["scripts/*"],
       "@styles/*": ["styles/*"]
-    },
-    "jsx": "preserve"
+    }
   }
 }
