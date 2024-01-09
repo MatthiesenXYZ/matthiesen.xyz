@@ -12,9 +12,6 @@ export default defineConfig({
     applyBaseStyles: false,
     nesting: true
   }), sitemap(), robotsTxt(), vue()],
-  redirects: {
-    '/rss': '/rss.xml'
-  },
   output: "server",
   adapter: netlify()
 });
