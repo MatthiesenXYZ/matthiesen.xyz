@@ -1,19 +1,38 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "E:/git-repo/mxyz-support/src",
     "strictNullChecks": true,
     "allowJs": true,
-    "types": ["astro/client"],
+    "types": [
+      "astro/client"
+    ],
     "paths": {
-      "@lib/*": ["lib/*"],
-      "@utils/*": ["utils/*"],
-      "@components/*": ["components/*"],
-      "@layouts/*": ["layouts/*"],
-      "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"],
-      "@scripts/*":["scripts/*"],
-      "@styles/*":["styles/*"]
-    }
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@layouts/*": [
+        "layouts/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@scripts/*": [
+        "scripts/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ]
+    },
+    "jsx": "preserve"
   }
 }

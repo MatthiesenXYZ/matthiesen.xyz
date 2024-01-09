@@ -2,8 +2,8 @@
 import { SEO } from "astro-seo";
 import { Title , SEOdescription } from "headerVars";
 import favicon from '@assets/favicon.png'
-import { SCSetupScript } from "@adammatthiesen/astro-snipcart";
 import { ViewTransitions } from "astro:transitions";
+import SCSetupVUE from "@components/store/SCSetupVUE.vue";
 
 const devENV = import.meta.env.DEV;
 const aURL = Astro.url.pathname;
@@ -31,5 +31,5 @@ const mTitle = pageTitle ? pageTitle + " | " + Title : Title;
     ? <ViewTransitions /> 
     : null
   }
-  <SCSetupScript />
+  <SCSetupVUE transition:persist client:idle/>
 </head>

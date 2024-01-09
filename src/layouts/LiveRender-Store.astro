@@ -14,7 +14,7 @@ export interface Props { title: string; }
 <html lang="en">
   <HeaderDefaults 
     pageTitle={Astro.props.title}  
-    viewTransEnabled={false}/>
+    viewTransEnabled={true}/>
   <BodyDefaults>
     <slot />
   </BodyDefaults>
