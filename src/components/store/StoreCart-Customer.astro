@@ -1,21 +1,21 @@
 ---
 import * as SC from "@adammatthiesen/astro-snipcart";
-const Cart = SC.SCCheckout;
-const Login = SC.SCCustomerDashboard;
+import * as SCVue from "@adammatthiesen/astro-snipcart/vue";
+
 ---
 <div class="flex flex-row">
     <div class="flex-none">
       <div class="flex-row inline-flex pr-4 focus:outline-none rounded-full border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-slate-800 text-slate-300 border-gray-600">
         <div>
-          <Cart>
+          <SC.Cart>
             <button class="text-white bg-gradient-to-r from-blue-400 via-blue-600 to-blue-800 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-badge text-sm px-2.5 inline py-2.5 text-center me-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="inline bi bi-cart3" viewBox="0 0 16 16">
                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
               </svg>
             </button>
-          </Cart>
+          </SC.Cart>
           <div class="align-text-center inline text-slate-200">
-          View Cart</div>
+          <SCVue.CartItemCount transition:persist client:load /> Items, Sub-Total <SCVue.CartTotal transition:persist client:load /></div>
         </div>
       </div>
     </div>
@@ -26,14 +26,14 @@ const Login = SC.SCCustomerDashboard;
           <div class="align-text-center inline text-slate-200 mr-2">
             Customer Dashboard
           </div>
-          <Login>
+          <SC.Login>
             <button class="text-white bg-gradient-to-r from-slate-400 via-slate-600 to-slate-800 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-slate-800 font-medium rounded-badge text-sm px-2.5 inline py-2.5 text-center mf-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="inline bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
               </svg>
             </button>
-          </Login>
+          </SC.Login>
         </div>
       </div>
     </div>
