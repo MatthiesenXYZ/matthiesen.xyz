@@ -1,6 +1,6 @@
 ---
+import ContactForm from "@components/contact/ContactForm.vue";
 import Contactinfo from "@components/contact/Contactinfo.astro";
-import Contactform from "@components/contact/contactform.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
 import BaseSSG from "@layouts/BaseSSG.astro";
@@ -16,7 +16,7 @@ import BaseSSG from "@layouts/BaseSSG.astro";
 
     <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
       <Contactinfo />
-      <Contactform />
+      <ContactForm client:load/>
     </div>
 
   </Container>

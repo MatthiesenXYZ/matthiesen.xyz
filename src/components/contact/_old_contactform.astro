@@ -1,7 +1,7 @@
 ---
 import Button from "../ui/button.astro";
 ---
-<form action="https://api.web3forms.com/submit" method="POST" id="form" class="needs-validation" novalidate>
+<form action="https://api.web3forms.com/submit" method="POST" id="form" class="needs-validation" novalidate >
   <input type="hidden" name="access_key" value="7cb460b0-427f-439a-95cd-4fe99d078601" />
   <input type="hidden" name="subject" value="New Ticket Submission" />
   <input type="hidden" name="from_name" value="MXYZ-Web3Form" />
@@ -44,7 +44,7 @@ import Button from "../ui/button.astro";
   }
 </style>
 
-<script is:inline transition:persist>
+<script is:inline>
   const form = document.getElementById("form");
   const result = document.getElementById("result");
 
