@@ -1,14 +1,14 @@
 ---
 import Container from "@components/ui/container.astro";
-import LiveRender from "@layouts/LiveRender.astro";
+import BaseSSR from "@layouts/BaseSSR.astro";
 import StoreProductList from "@components/store/StoreProductList.astro";
 import StoreHeader from "@components/store/StoreHeader.astro";
 ---
-<LiveRender title="Store">
+<BaseSSR title="Store">
   <Container>
     
     <StoreHeader />
     <StoreProductList /> 
     
   </Container>
-</LiveRender>
+</BaseSSR>

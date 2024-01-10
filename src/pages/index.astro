@@ -4,11 +4,11 @@ import Services from "@components/index/services.astro";
 import Hero from "@components/index/hero.astro";
 import TestimonialsEmpty from "@components/index/TestimonialsEmpty.astro";
 import TestimonialCard from "@components/index/TestimonialCard.astro";
-import StaticRender from "@layouts/StaticRender.astro";
+import BaseSSG from "@layouts/BaseSSG.astro";
 import FeaturedBlogPosts from "@components/index/FeaturedBlogPosts.astro";
 ---
 
-<StaticRender title="">
+<BaseSSG title="">
   <Container>
     <Hero />
     <Services />
@@ -16,4 +16,4 @@ import FeaturedBlogPosts from "@components/index/FeaturedBlogPosts.astro";
     <TestimonialsEmpty />
     <!--TestimonialCard /-->
   </Container>
-</StaticRender>
+</BaseSSG>

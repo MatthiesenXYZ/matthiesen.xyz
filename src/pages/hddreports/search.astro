@@ -1,5 +1,5 @@
 ---
-import LiveRender from "@layouts/LiveRender.astro";
+import BaseSSR from "@layouts/BaseSSR.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
 import dayjs from "dayjs";
@@ -8,7 +8,7 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.extend(localizedFormat);
 ---
 
-<LiveRender title="HDD Wipe Reports: Search">
+<BaseSSR title="HDD Wipe Reports: Search">
   <Container>
 
     <Sectionhead>
@@ -43,7 +43,7 @@ dayjs.extend(localizedFormat);
   </section>
 
   </Container>
-</LiveRender>
+</BaseSSR>
 
 <script>
 // IMPORTS

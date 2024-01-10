@@ -1,12 +1,12 @@
 ---
 import StoreGoBack from "@components/store/StoreGoBack.astro";
 import Container from "@components/ui/container.astro";
-import StaticRender from "@layouts/StaticRender.astro";
+import BaseSSG from "@layouts/BaseSSG.astro";
 import { Picture } from "astro:assets";
 import mainPicture from "@assets/store-images/software-install-docker.png";
 ---
 
-<StaticRender title="Store: Software Install/Deployment">
+<BaseSSG title="Store: Software Install/Deployment">
     <Container>
 
         <center class="mt-5">
@@ -38,5 +38,5 @@ import mainPicture from "@assets/store-images/software-install-docker.png";
         <StoreGoBack />
         
     </Container>
-  </StaticRender>
+  </BaseSSG>
   

@@ -8,10 +8,14 @@ import vue from "@astrojs/vue";
 // https://astro.build/config
 export default defineConfig({
   site: "https://matthiesen.xyz",
-  integrations: [tailwind({
-    applyBaseStyles: false,
-    nesting: true
-  }), sitemap(), robotsTxt(), vue()],
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+      nesting: true
+    }), 
+    sitemap(), 
+    robotsTxt(), 
+    vue()],
   output: "server",
   adapter: netlify()
 });

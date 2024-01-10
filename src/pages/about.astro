@@ -4,10 +4,10 @@ import Sectionhead from "@components/ui/sectionhead.astro";
 import AboutDescription from "@components/about/AboutDescription.astro";
 import AboutThisWebsite from "@components/about/AboutThisWebsite.astro";
 import ListTeamMembers from "@components/about/ListTeamMembers.astro";
-import StaticRender from "@layouts/StaticRender.astro";
+import BaseSSG from "@layouts/BaseSSG.astro";
 
 ---
-<StaticRender title="About">
+<BaseSSG title="About">
   <Container>
 
     <Sectionhead>
@@ -20,4 +20,4 @@ import StaticRender from "@layouts/StaticRender.astro";
     <AboutThisWebsite />
     
   </Container>
-</StaticRender>
+</BaseSSG>

@@ -28,7 +28,7 @@
       ],
       "@scripts/*": [
         "scripts/*"
-    ],
+      ],
       "@styles/*": [
         "styles/*"
     ],

@@ -3,14 +3,12 @@ import GhostAuthors from "@components/blog/GhostAuthors.astro";
 import BackToBlog from "@components/crumbs/BackToBlog.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
-import LiveRender from "@layouts/LiveRender.astro";
+import BaseSSR from "@layouts/BaseSSR.astro";
 import { getGhostAuthors } from "@lib/ghost";
 
 const authors = await getGhostAuthors();
 ---
-
-
-<LiveRender title="Blog: Authors">
+<BaseSSR title="Blog: Authors">
     <Container>
 
         <Sectionhead>
@@ -26,4 +24,4 @@ const authors = await getGhostAuthors();
         <BackToBlog />
 
     </Container>
-</LiveRender>
+</BaseSSR>

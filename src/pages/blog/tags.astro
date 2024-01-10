@@ -4,13 +4,13 @@ import BackToBlog from "@components/crumbs/BackToBlog.astro";
 import GhostPowered from "@components/crumbs/GhostPowered.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
-import LiveRender from "@layouts/LiveRender.astro";
+import BaseSSR from "@layouts/BaseSSR.astro";
 import { getGhostTags } from "@lib/ghost";
 
 
 const tags = await getGhostTags();
 ---
-<LiveRender title="Blog: Tag Index">
+<BaseSSR title="Blog: Tag Index">
     <Container>
 
       <GhostPowered />
@@ -54,4 +54,4 @@ const tags = await getGhostTags();
             </div>
       </div>
     </Container>
-</LiveRender>
+</BaseSSR>

@@ -1,7 +1,7 @@
 ---
 import SupportOurWork from '@components/crumbs/SupportOurWork.astro';
 import  { PI, ghostClient }  from '@lib/ghost';
-import LiveRender from '@layouts/LiveRender.astro';
+import BaseSSR from '@layouts/BaseSSR.astro';
 import Container from '@components/ui/container.astro';
 import BackToBlog from '@components/crumbs/BackToBlog.astro';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
@@ -28,7 +28,7 @@ const formattedPublishDate = new Date(published_at).toLocaleDateString(locale, d
 const formattedUpdatedDate = new Date(updated_at).toLocaleDateString(locale, dateOptions );
    
 ---
-<LiveRender title={title}>
+<BaseSSR title={title}>
     <Container>
       
       <div class="mx-auto max-w-5xl mt-5">
@@ -97,4 +97,4 @@ const formattedUpdatedDate = new Date(updated_at).toLocaleDateString(locale, dat
       <BackToBlog />
   
     </Container>
-</LiveRender>
+</BaseSSR>

@@ -1,5 +1,5 @@
 ---
-import LiveRender from '@layouts/LiveRender.astro';
+import BaseSSR from '@layouts/BaseSSR.astro';
 import Container from '@components/ui/container.astro';
 import { PI, ghostClient } from '@lib/ghost';
 import GhostPowered from '@components/crumbs/GhostPowered.astro';
@@ -24,7 +24,7 @@ const posts = await ghostClient.posts.browse({
   limit: 'all', include: PI });
 
 ---
-<LiveRender title="tags">
+<BaseSSR title="tags">
     <Container>
         
       <GhostPowered />
@@ -47,4 +47,4 @@ const posts = await ghostClient.posts.browse({
         </main>
         
     </Container>
-</LiveRender>
+</BaseSSR>

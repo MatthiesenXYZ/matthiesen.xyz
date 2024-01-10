@@ -1,13 +1,13 @@
 ---
 import Error404 from "@components/crumbs/Error404.astro";
 import Container from "@components/ui/container.astro";
-import StaticRender from "@layouts/StaticRender.astro";
+import BaseSSG from "@layouts/BaseSSG.astro";
 ---
 
-<StaticRender title="404 Not Found">
+<BaseSSG title="404 Not Found">
   <Container>
     
     <Error404 />
 
   </Container>
-</StaticRender>
+</BaseSSG>
