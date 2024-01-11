@@ -3,7 +3,8 @@ import { getGhostFeaturedPosts } from "@lib/ghost";
 import { Picture } from "astro:assets";
 import defaultImage from '@assets/component-assets/mxyz-hero.png';
 
-const posts = await getGhostFeaturedPosts('3');
+const { limit } = Astro.props 
+const posts = await getGhostFeaturedPosts(limit);
 ---
 <div class="mt-16 md:mt-10">
     <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
@@ -42,4 +43,3 @@ const posts = await getGhostFeaturedPosts('3');
       ))}
     </div>
 )}
-    

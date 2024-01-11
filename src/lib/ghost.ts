@@ -1,6 +1,7 @@
 // IMPORT Ghost Content API & Ghost Types
 import GhostContentAPI from '@tryghost/content-api';
-import type {PostOrPage, PostsOrPages, Authors, Tag, Tags} from './ghostTypes';
+import type {PostOrPage, PostsOrPages,
+    Authors, Tag, Tags} from 'tryghost__content-api';
 
 // IMPORT ENV Variables
 const env = import.meta.env;
@@ -23,9 +24,9 @@ export const getGhostPosts = async () => {
 }
 
 // Get Posts (Featured "setlimit")
-export const getGhostFeaturedPosts = async (flimit: string) => {
+export const getGhostFeaturedPosts = async (limit: string) => {
     const ghostFeaturedPosts: PostsOrPages = await ghostClient.posts.browse({
-        limit:flimit,include:iPost,filter:'featured:true' })
+        limit:limit?limit:'0',include:iPost,filter:'featured:true' })
     return ghostFeaturedPosts;
 }
 
@@ -45,7 +46,8 @@ export const getGhostPostsbyTag = async (slug: string) => {
 
 // Get Tags (General "ALL")
 export const getGhostTags = async () => {
-    const ghostTags: Tags = await ghostClient.tags.browse({ include:`count.posts` })
+    const ghostTags: Tags = await ghostClient.tags.browse({
+        include:`count.posts` })
     return ghostTags;
 }
 
