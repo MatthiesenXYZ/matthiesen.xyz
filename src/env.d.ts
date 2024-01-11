@@ -1,8 +1,6 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 
-declare module '@tryghost/content-api';
-declare module '@tryghost/helpers';
 declare module '@adammatthiesen/astro-snipcart/vue';
 
 interface ImportMetaEnv {

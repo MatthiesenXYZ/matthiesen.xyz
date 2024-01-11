@@ -1,0 +1,90 @@
+---
+import SupportOurWork from '@components/crumbs/SupportOurWork.astro';
+import  { getGhostPostbySlug }  from '@lib/ghost';
+import BaseSSR from '@layouts/BaseSSR.astro';
+import Container from '@components/ui/container.astro';
+import BackToBlog from '@components/crumbs/BackToBlog.astro';
+import GhostPowered from '@components/crumbs/GhostPowered.astro';
+import { Picture } from 'astro:assets';
+import defaultImage from '@assets/component-assets/mxyz-hero.png';
+
+// GET SLUG
+const { slug } = Astro.params;
+// IF SLUG DOSNT EXIST THEN THROW ERROR
+if(slug === undefined){ throw new Error('Slug is required'); }
+// GET POSTS FROM GHOST
+const ghostPost = await getGhostPostbySlug(slug);
+// IF NO POST AVAILABLE THEN REDIRECT TO 404
+if(ghostPost === undefined) { return Astro.redirect('/404'); }
+
+// GET PAGE VARIABLES AND SETTINGS FROM PAGE CREATION
+const { title, html, feature_image, feature_image_alt, published_at, updated_at, primary_author, tags } = ghostPost;
+
+const heroImage = feature_image ? feature_image : defaultImage
+// DATE FORMATING/FIXES
+const locale = "en-US";
+const dateOptions: object = { year: "numeric", month: "long", day: "numeric" };
+const formattedPublishDate = published_at && new Date(published_at).toLocaleDateString(locale, dateOptions );
+const formattedUpdatedDate = updated_at && new Date(updated_at).toLocaleDateString(locale, dateOptions );
+   
+---
+<BaseSSR title={title ? title : ""}>
+  <Container>
+    <div class="mx-auto max-w-5xl mt-5">
+      <center>
+        <Picture
+          src={heroImage.toString()}
+          alt={feature_image_alt ? feature_image_alt : "no alt"}
+          sizes="(max-width: 800px) 100vw, 800px"
+          width={800} height={600}
+          class="w-full rounded-md object-cover object-center"/>
+      </center>
+      <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight">{title}</h1>
+      {tags && (<h3 class="text-gray-500">{tags.map((tag) => (<a href={`/blog/tag/${tag.slug}`}> <i class="bi bi-tag"/>{tag.name}</a>))}</h3>) }
+      <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">Author: 
+        <a href="/blog/authors" class="inline-flex pr-2 mb-2  focus:outline-none rounded-full border focus:z-10 focus:ring-4  focus:ring-gray-700 bg-slate-800 text-slate-300 border-gray-600 hover:bg-slate-600"><img class="w-7 h-7 me-1 rounded-full" src={primary_author && primary_author.profile_image} alt= {primary_author.name}><span class="text-slate-100"> {primary_author && primary_author.name}</span>
+        </a>
+      </div>
+    </div>
+    <!-- DIVIDER BAR -->
+    <div class="mb-0 mt-0 mx-auto max-w-5xl flex flex-row">
+      <!-- TOP OF DIVIDER BAR -->
+      <!-- LEFT -->
+      <time class="text-slate-300 flex-1" datetime={published_at}>
+        Published: 
+        <span class=" text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded me-2 bg-slate-700 text-slate-300 border border-slate-500 ">
+          <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z"/>
+          </svg> {formattedPublishDate}
+        </span>
+      </time>
+      <!-- RIGHT -->
+      <time class="text-slate-300 flex-2" datetime={updated_at}>
+        Last Modified: 
+        <span class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded bg-slate-700 text-blue-400 border border-blue-400">
+          <svg class="w-2.5 h-2.5 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z"/>
+          </svg> {formattedUpdatedDate}
+        </span>
+      </time>
+    </div>
+    <div class="divider mx-auto max-w-5xl  my-0" />
+    <!-- BOTTOM OF DIVIDER BAR -->
+    <div class="mb-0 mt-0 mx-auto max-w-5xl flex flex-row">
+      <!-- LEFT -->
+      <div class="flex-1">
+        <GhostPowered />
+      </div>
+      <!-- RIGHT -->
+      <div class="flex-2">
+        <SupportOurWork />
+      </div>
+    </div>
+    <!-- END OF DIVIDER BAR -->
+    <div class="mx-auto prose prose-lg mt-6 max-w-5xl">
+      <!-- CONTENT -->
+      <Fragment set:html={html} />
+    </div>
+    <BackToBlog />
+  </Container>
+</BaseSSR>

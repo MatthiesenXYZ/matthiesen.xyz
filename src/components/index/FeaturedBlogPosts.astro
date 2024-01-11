@@ -2,9 +2,11 @@
 import { getGhostFeaturedPosts } from "@lib/ghost";
 import { Picture } from "astro:assets";
 import defaultImage from '@assets/component-assets/mxyz-hero.png';
+import type { ArrayOrValue, LimitParam } from "@tryghost/content-api";
 
-const { limit } = Astro.props 
-const posts = await getGhostFeaturedPosts(limit);
+interface Props { setLimit?:ArrayOrValue<LimitParam>; }
+const { setLimit = undefined } = Astro.props 
+const posts = await getGhostFeaturedPosts(setLimit);
 ---
 <div class="mt-16 md:mt-10">
     <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
