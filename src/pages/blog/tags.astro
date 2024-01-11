@@ -7,7 +7,6 @@ import Sectionhead from "@components/ui/sectionhead.astro";
 import BaseSSR from "@layouts/BaseSSR.astro";
 import { getGhostTags } from "@lib/ghost";
 
-
 const tags = await getGhostTags();
 ---
 <BaseSSR title="Blog: Tag Index">
@@ -44,7 +43,7 @@ const tags = await getGhostTags();
                             <div class="my-2 text-center">
                                 <h2 class="text-lg text-gray-100"><i class="bi bi-tag"/>{tag.name}</h2>
                             </div>
-                            <p class="text-sm text-slate-300 text-center">Total Posts: {tag.count.posts}</p>
+                            <p class="text-sm text-slate-300 text-center">Total Posts: {tag.count && tag.count.posts}</p>
                         </div>
                     </a>
                     ))} 
