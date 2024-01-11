@@ -1,5 +1,6 @@
 ---
-import GhostPostbySlug from "@components/GhostPostbySlug.astro";
+import GhostPostbySlug from "@components/blog/GhostPostbySlug.astro";
 const { slug } = Astro.params;
+if(slug === undefined){ throw new Error('Slug is required'); }
 ---
-<GhostPostbySlug slug={slug?slug:""} />
+<GhostPostbySlug slug={slug} />
