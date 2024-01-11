@@ -14,34 +14,31 @@ const { slug } = Astro.params;
 // IF SLUG DOSNT EXIST THEN THROW ERROR
 if(slug === undefined){ throw new Error('Slug is required'); }
 // GET TAG
-const ghostTag = await getGhostTagbySlug(`${slug}`);
+const ghostTag = await getGhostTagbySlug(slug);
 // IF NO TAG AVAILABLE THEN REDIRECT TO 404
 if(ghostTag === undefined) { return Astro.redirect('/404'); }
 
-const posts = await getGhostPostsbyTag(`${ghostTag.slug}`)
+const posts = await getGhostPostsbyTag(slug)
 
 ---
-<BaseSSR title="tags">
+<BaseSSR title={ghostTag.name ? ghostTag.name : slug}>
     <Container>
-        
       <GhostPowered />
-      
       <Sectionhead>
         <Fragment slot="title"> Blog <RssIcon />
             <br> Tag - <div class="text-gray-400 inline"><i class="bi bi-tag"/>{ghostTag.name}</div></Fragment>
-        <Fragment slot="desc">{ghostTag.description && (`"` + ghostTag.description + `" - `)}Total Posts: {ghostTag.count && ghostTag.count.posts}</Fragment>
+        <Fragment slot="desc">
+          {ghostTag.description && (`"` + ghostTag.description + `" - `)}
+          {ghostTag.count && "Total Posts: " + ghostTag.count.posts}
+        </Fragment>
       </Sectionhead>
       <BackToBlog />
-
       <main class="mt-5 max-w-5xl mx-auto">
-
         <OurBlogAuthors />
         <TagIndex />
-
         <ul class="grid gap-16 ">
             { posts.map((post) => <GhostPost post={post} />) }
           </ul>
         </main>
-        
     </Container>
 </BaseSSR>

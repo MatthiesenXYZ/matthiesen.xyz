@@ -9,19 +9,15 @@ import { getGhostAuthors } from "@lib/ghost";
 const authors = await getGhostAuthors();
 ---
 <BaseSSR title="Blog: Authors">
-    <Container>
-
-        <Sectionhead>
-          <Fragment slot="title">Our Blog Authors</Fragment>
-          <Fragment slot="desc">These are the Authors who make our blog what it is!</Fragment>
-        </Sectionhead>
-        
-        <div class="grid md:grid-cols-3 items-center gap-10 mx-auto max-w-4xl mt-12">
-        {authors.map((author) => <GhostAuthors ghostAuthor={author} />) }
-        </div>
-
-        <div class="my-20" />
-        <BackToBlog />
-
-    </Container>
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Our Blog Authors</Fragment>
+      <Fragment slot="desc">These are the Authors who make our blog what it is!</Fragment>
+    </Sectionhead>
+    <div class="grid md:grid-cols-3 items-center gap-10 mx-auto max-w-4xl mt-12">
+      {authors.map((author) => <GhostAuthors ghostAuthor={author} />) }
+    </div>
+    <div class="my-20" />
+    <BackToBlog />
+  </Container>
 </BaseSSR>

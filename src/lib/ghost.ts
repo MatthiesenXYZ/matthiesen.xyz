@@ -25,21 +25,21 @@ export const getGhostPosts = async () => {
 // Get Posts (Featured "setlimit")
 export const getGhostFeaturedPosts = async (flimit: string) => {
     const ghostFeaturedPosts: PostsOrPages = await ghostClient.posts.browse({
-        limit:`${flimit}`,include:iPost,filter:'featured:true' })
+        limit:flimit,include:iPost,filter:'featured:true' })
     return ghostFeaturedPosts;
 }
 
 // Get Post (By Slug)
 export const getGhostPostbySlug = async (slug: string) => {
     const ghostPostbySlug: PostOrPage = await ghostClient.posts.read({
-        slug:`${slug}`,include:iPost })
+        slug:slug,include:iPost })
     return ghostPostbySlug;
 }
 
 // Get Post (By Tag)
-export const getGhostPostsbyTag = async (tagSlug: string) => {
+export const getGhostPostsbyTag = async (slug: string) => {
     const ghostPostsbyTag: PostsOrPages = await ghostClient.posts.browse({
-        filter:`tag:${tagSlug}`,limit:'all',include:iPost })
+        filter:`tag:${slug}`,limit:'all',include:iPost })
     return ghostPostsbyTag;
 }
 
@@ -52,7 +52,7 @@ export const getGhostTags = async () => {
 // Get Tag (By Slug)
 export const getGhostTagbySlug = async (slug: string) => {
     const ghostTagbySlug: Tag = await ghostClient.tags.read({
-        slug:`${slug}`,include:`count.posts` })
+        slug:slug,include:`count.posts` })
     return ghostTagbySlug;
 }
 

@@ -12,25 +12,18 @@ import TagIndex from '@components/blog/TagIndex.astro';
 const posts = await getGhostPosts();
 ---
 <BaseSSR title="Blog">
-    <Container>
-
-      <GhostPowered />
-      
-      <Sectionhead>
-        <Fragment slot="title"> Blog <RssIcon /></Fragment>
-        <Fragment slot="desc">Our Posts & Tutorials, Our Tutorials mainly Focus on FOSS (Free Open Source Software).</Fragment>
-      </Sectionhead>
-      
-
-      <main class="mt-5 max-w-5xl mx-auto">
-
-        <OurBlogAuthors />
-        <TagIndex />
-
-        <ul class="grid gap-16 ">
-          { posts.map((post) => <GhostPost post={post} />) }
-        </ul>
-      </main>
-      
-    </Container>
+  <Container>
+    <GhostPowered />
+    <Sectionhead>
+      <Fragment slot="title"> Blog <RssIcon /></Fragment>
+      <Fragment slot="desc">Our Posts & Tutorials, Our Tutorials mainly Focus on FOSS (Free Open Source Software).</Fragment>
+    </Sectionhead>
+    <main class="mt-5 max-w-5xl mx-auto">
+      <OurBlogAuthors />
+      <TagIndex />
+      <ul class="grid gap-16 ">
+        { posts.map((post) => <GhostPost post={post} />) }
+      </ul>
+    </main>
+  </Container>
 </BaseSSR>

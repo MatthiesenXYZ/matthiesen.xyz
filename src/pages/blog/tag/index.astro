@@ -10,47 +10,27 @@ import { getGhostTags } from "@lib/ghost";
 const tags = await getGhostTags();
 ---
 <BaseSSR title="Blog: Tag Index">
-    <Container>
-
-      <GhostPowered />
-      
-      <Sectionhead>
+<Container>
+    <GhostPowered />
+    <Sectionhead>
         <Fragment slot="title"> Blog: <i class="bi bi-tag"/>Tag Index</Fragment>
         <Fragment slot="desc">Our Posts & Tutorials, Our Tutorials mainly Focus on FOSS (Free Open Source Software).</Fragment>
-      </Sectionhead>
-      <BackToBlog />
-      
-      <div class="mt-5 max-w-5xl mx-auto">
-        
+    </Sectionhead>
+    <BackToBlog />
+    <div class="mt-5 max-w-5xl mx-auto">
         <OurBlogAuthors />
-
-        <div class="divider my-5" />
-            <div class="grid md:grid-cols-2 justify-center">
-
-                {!tags && (
+        <div class="divider my-5" /> 
+        <div class="grid md:grid-cols-2 justify-center">
+            {!tags && ( <div class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-800 border-slate-400 hover:bg-slate-600"> <div class="my-2 text-center"> <h2 class="text-lg text-gray-100">No Tags Available...</h2> </div> </div> ) }
+            {tags && ( <> {tags.map((tag) => (
+                <a href={`/blog/tag/${tag.slug}`} class="px-2 py-2"> 
                     <div class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-800 border-slate-400 hover:bg-slate-600">
-                        <div class="my-2 text-center">
-                                <h2 class="text-lg text-gray-100">No Tags Available...</h2>
-                        </div>
+                        <div class="my-2 text-center"><h2 class="text-lg text-gray-100"><i class="bi bi-tag"/>{tag.name}</h2></div>
+                        <p class="text-sm text-slate-300 text-center">Total Posts: {tag.count ? tag.count.posts : null}</p>
                     </div>
-                )}
-
-                {tags && (
-                    <>
-                    {tags.map((tag) => (
-                    <a href={`/blog/tag/${tag.slug}`} class="px-2 py-2"> 
-                        <div class="p-4 border rounded-lg shadow-xl shadow-slate-950 bg-slate-800 border-slate-400 hover:bg-slate-600">
-                            <div class="my-2 text-center">
-                                <h2 class="text-lg text-gray-100"><i class="bi bi-tag"/>{tag.name}</h2>
-                            </div>
-                            <p class="text-sm text-slate-300 text-center">Total Posts: {tag.count ? tag.count.posts : null}</p>
-                        </div>
-                    </a>
-                    ))} 
-                    </>
-                )}
-                
-            </div>
-      </div>
-    </Container>
+                </a> ))} </> 
+            )}
+        </div>
+    </div>
+</Container>
 </BaseSSR>
