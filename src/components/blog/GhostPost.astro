@@ -12,7 +12,7 @@ const formattedPublishDate = new Date(published_at).toLocaleDateString(locale, d
 ---
 <li>
   <div class="divider" />
-  <a href={`/blog/${post.slug}`}> <div class="sr-only">Blog Post</div>
+  <a href={`/blog/${post.slug}`} data-astro-reload> <div class="sr-only">Blog Post</div>
     <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
       <Picture
         src={feature_image ? feature_image : defaultImage}
