@@ -1,11 +1,15 @@
 ---
 import Base from "./BaseSSR.astro";
 
-interface Props { title: string; }
-const {title} = Astro.props;
+interface Props { 
+  title: string
+  isStorePage?:boolean
+}
+
+const { title, isStorePage } = Astro.props;
 
 export const prerender = true;
 ---
-<Base title={title}>
+<Base title={title} isStorePage={isStorePage}>
   <slot />
 </Base>

@@ -9,9 +9,12 @@ const devENV = import.meta.env.DEV;
 const aURL = Astro.url.pathname;
 const SITE = Astro.site;
 
-export interface Props { pageTitle: string; }
+interface Props { 
+  pageTitle: string
+  isStorePage?: boolean
+}
 
-const { pageTitle } = Astro.props;
+const { pageTitle, isStorePage } = Astro.props;
 const cURL = new URL(aURL, SITE).toString();
 const mTitle = pageTitle ? pageTitle + " | " + Title : Title;
 ---
@@ -25,5 +28,5 @@ const mTitle = pageTitle ? pageTitle + " | " + Title : Title;
     description={SEOdescription}
     canonical={cURL}/>
   <ViewTransitions />
-  <HeaderVue transition:persist client:idle/>
+  {isStorePage && <HeaderVue transition:persist client:load/>}
 </head>
