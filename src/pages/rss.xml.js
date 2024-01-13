@@ -1,6 +1,6 @@
 import rss from "@astrojs/rss";
-import { getGhostPosts } from "@lib/ghost";
 import { RSSdescription, Title } from "headerVars";
+import { getGhostPosts } from '@adammatthiesen/astro-ghostcms';
 
 export async function GET() {
   const posts = await getGhostPosts();
