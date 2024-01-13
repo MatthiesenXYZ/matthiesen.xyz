@@ -1,10 +1,9 @@
 ---
-import { getGhostFeaturedPosts } from "@lib/ghost";
+import { getGhostFeaturedPosts } from "@adammatthiesen/astro-ghostcms";
 import { Picture } from "astro:assets";
 import defaultImage from '@assets/component-assets/mxyz-hero.png';
-import type { ArrayOrValue, LimitParam } from "@tryghost/content-api";
 
-interface Props { setLimit?:ArrayOrValue<LimitParam>; }
+interface Props { setLimit?:number; }
 const { setLimit = undefined } = Astro.props 
 const posts = await getGhostFeaturedPosts(setLimit);
 ---

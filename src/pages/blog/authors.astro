@@ -4,7 +4,7 @@ import BackToBlog from "@components/crumbs/BackToBlog.astro";
 import Container from "@components/ui/container.astro";
 import Sectionhead from "@components/ui/sectionhead.astro";
 import BaseSSR from "@layouts/BaseSSR.astro";
-import { getGhostAuthors } from "@lib/ghost";
+import { getGhostAuthors } from "@adammatthiesen/astro-ghostcms";
 
 const authors = await getGhostAuthors();
 ---
