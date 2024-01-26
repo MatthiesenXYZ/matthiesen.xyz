@@ -17,7 +17,7 @@
     "@astrojs/sitemap": "^3.0.4",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vue": "^4.0.8",
-    "@fontsource-variable/inter": "^5.0.15",
+    "astro-font": "^0.0.77",
     "@matthiesenxyz/astro-ghostcms": "2.0.2",
     "@tailwindcss/typography": "^0.5.10",
     "@vueuse/core": "^10.7.1",
