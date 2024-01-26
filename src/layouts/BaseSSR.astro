@@ -3,21 +3,20 @@ import HeaderDefaults from "@components/crumbs/HeaderDefaults.astro";
 import BodyDefaults from "@components/crumbs/BodyDefaults.astro";
 
 // IMPORT CSS STYLES
-import '@styles/global.css';
-import "@fontsource-variable/inter/index.css";
+import "@styles/global.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-interface Props { 
-  title: string
-  isStorePage?:boolean
+interface Props {
+  title: string;
+  isStorePage?: boolean;
 }
 
 const { title, isStorePage } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <HeaderDefaults pageTitle={title} isStorePage={isStorePage}/>
+  <HeaderDefaults pageTitle={title} isStorePage={isStorePage} />
   <BodyDefaults>
     <slot />
   </BodyDefaults>
